@@ -1,15 +1,18 @@
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { icons } from "../../constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
+    const iconSize = focused ? 28 : 24; // Increase icon size when focused
+    const labelSize = focused ? 14 : 12; // Increase label size when focused
+
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 2 }}>
         <Image
           source={icon}
           resizeMode="contain"
-          style={{ width: 24, height: 24, tintColor: color }} // Adjusted width and height for consistency
+          style={{ width: iconSize, height: iconSize, tintColor: color }} // Adjust icon size based on focus
         />
       </View>
     );
@@ -20,12 +23,12 @@ const TabsLayout = () => {
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: "#F4CE14", // primary yellow
-                tabBarInactiveTintColor: "#CDCDE0",
-                tabBarShowLabel: false,
+                tabBarInactiveTintColor: "#CDCDE0", // inactive color
+                tabBarShowLabel: true, // Disable default labels
                 tabBarStyle: {
                     backgroundColor: "#495E57", // primary green
                     borderTopWidth: 1,
-                    borderTopColor: "#228B22", // You may want to use a matching color here
+                    borderTopColor: "#228B22", // Dark green
                     height: 84,
                 },
             }}
@@ -48,13 +51,13 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="reservations"
                 options={{
-                    title: "Reservations",
+                    title: "Bookings",
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
                             icon={icons.bookmark}
                             color={color}
-                            name="Reservations"
+                            name="Bookings"
                             focused={focused}
                         />
                     ),
