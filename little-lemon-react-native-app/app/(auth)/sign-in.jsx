@@ -29,11 +29,11 @@ const SignIn = () => {
           <TouchableOpacity onPress={() => router.back()} style={{ position: 'absolute', top: 20, left: 20 }}>
             <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
-          
+
           <Image
             source={images.logo2}
             resizeMode="contain"
-            style={{ width: 165, height: 44, alignSelf: 'center', marginTop: 20 }}
+            style={{ width: 165, height: 44 }}
           />
           <Text className="text-[18px] font-semibold text-white mt-4 font-karla-regular">
             {" "}Log in for <Text className="text-primary-yellow"> great daily offers</Text>
