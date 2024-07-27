@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { Link, router } from "expo-router";
+import { Link, useRouter } from "expo-router"; // updated import
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../../constants";
 import FormField from '../../components/FormField.jsx';
 import CustomButton from '../../components/CustomButton.jsx';
+import { Ionicons } from '@expo/vector-icons'; // import Ionicons for back arrow
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -14,6 +15,8 @@ const SignIn = () => {
   });
   const [isSubmitting] = useState(false);
 
+  const router = useRouter(); // initialize the router
+
   const submit = async () => {}
 
   return (
@@ -21,12 +24,16 @@ const SignIn = () => {
       <ScrollView>
         <View
           className="w-full flex justify-center min-h-[80vh] px-4 my-6"
-          style={{}} //add style
+          style={{}} // add style
         >
+          <TouchableOpacity onPress={() => router.back()} style={{ position: 'absolute', top: 20, left: 20 }}>
+            <Ionicons name="arrow-back" size={24} color="white" />
+          </TouchableOpacity>
+          
           <Image
             source={images.logo2}
             resizeMode="contain"
-            style={{ width: 165, height: 44 }}
+            style={{ width: 165, height: 44, alignSelf: 'center', marginTop: 20 }}
           />
           <Text className="text-[18px] font-semibold text-white mt-4 font-karla-regular">
             {" "}Log in for <Text className="text-primary-yellow"> great daily offers</Text>
@@ -62,10 +69,9 @@ const SignIn = () => {
               href="/sign-up"
               className="text-lg font-psemibold text-secondary"
             >
-              Signup
+              Sign up
             </Link>
           </View>
-
         </View>
       </ScrollView>
     </SafeAreaView>
