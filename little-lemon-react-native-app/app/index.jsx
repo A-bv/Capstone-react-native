@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, Text, Image, View } from 'react-native';
 import { Redirect, router } from 'expo-router'; // Navigation
+import { Link } from 'expo-router'; // Correct import for Link
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../constants";
 
@@ -32,12 +33,25 @@ export default function App() {
             handlePress={() => router.push("/sign-in")}
             containerStyles="w-full mt-7"
           />
+
+          <View className="flex justify-center pt-5 flex-row gap-2">
+            <Text className="text-lg text-gray-100 font-pregular">
+              Maybe later?
+            </Text>
+            <Link
+              href="/home"
+              className="text-lg font-psemibold text-secondary"
+            >
+              Continue
+            </Link>
+          </View>
         </View>
       </ScrollView>
       <StatusBar backgroundColor="#161622" style="light" />
     </SafeAreaView>
   );
 }
+
 
 
 /*
