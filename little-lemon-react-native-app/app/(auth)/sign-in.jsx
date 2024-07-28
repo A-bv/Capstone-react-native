@@ -13,20 +13,28 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  const [isSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const router = useRouter(); // initialize the router
+  const router = useRouter();
 
-  const submit = async () => {}
+  const submit = async () => {
+    setIsSubmitting(true);
+    try {
+      // Add submit logic
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <SafeAreaView className="bg-primary-green h-full">
       <ScrollView>
         <View
           className="w-full flex justify-center min-h-[80vh] px-4 my-6"
-          style={{}} // add style
         >
-          <TouchableOpacity onPress={() => router.back()} style={{ position: 'absolute', top: 20, left: 20 }}>
+          <TouchableOpacity onPress={() => router.dismissAll()} style={{ position: 'absolute', top: 20, left: 20 }}>
             <Ionicons name="arrow-back" size={24} color="white" />
           </TouchableOpacity>
 

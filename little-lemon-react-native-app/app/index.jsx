@@ -52,8 +52,6 @@ export default function App() {
   );
 }
 
-
-
 /*
 <SafeAreaView className="flex-1 items-center justify-center bg-primary-green">
 <Text className= "text-3xl font-markazi-medium">Ayoo!</Text>
