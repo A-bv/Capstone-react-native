@@ -6,6 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../../constants";
 import FormField from '../../components/FormField.jsx';
 import CustomButton from '../../components/CustomButton.jsx';
+import { validateForm } from '../../utils/validation'; // Import the validate function
+import { saveUser } from '../../utils/storage'; // Import the saveUser function
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -13,9 +15,26 @@ const SignUp = () => {
     email: "",
     password: "",
   });
-  const [isSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const submit = async () => {}
+  const submit = async () => {
+    const validationErrors = validateForm(form); // Use the imported validate function
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await saveUser(form); // Use the saveUser function from the utils
+      router.push('/home');
+    } catch (error) {
+      console.error('Failed to save data:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <SafeAreaView className="bg-primary-green h-full">
@@ -37,6 +56,7 @@ const SignUp = () => {
             value={form.username}
             handleChangeText={(e) => setForm({ ...form, username: e })}
             otherStyles="mt-10"
+            error={errors.username}
           />
 
           <FormField
@@ -45,6 +65,7 @@ const SignUp = () => {
             handleChangeText={(e) => setForm({ ...form, email: e })}
             otherStyles="mt-7"
             keyboardType="email-address"
+            error={errors.email}
           />
 
           <FormField
@@ -52,6 +73,7 @@ const SignUp = () => {
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
+            error={errors.password}
           />
 
           <CustomButton
@@ -63,7 +85,7 @@ const SignUp = () => {
 
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
-              Already have have an account?
+              Already have an account?
             </Text>
             <Link
               href="/sign-in"
