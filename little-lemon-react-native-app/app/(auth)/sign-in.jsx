@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { Link, useRouter } from "expo-router"; // updated import
+import { Link, useRouter } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../../constants";
 import FormField from '../../components/FormField.jsx';
 import CustomButton from '../../components/CustomButton.jsx';
-import { Ionicons } from '@expo/vector-icons'; // import Ionicons for back arrow
+import { Ionicons } from '@expo/vector-icons';
 
 const SignIn = () => {
   const [form, setForm] = useState({

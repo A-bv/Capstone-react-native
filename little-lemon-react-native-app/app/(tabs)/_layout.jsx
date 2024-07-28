@@ -50,7 +50,7 @@ const TabsLayout = () => {
             <Tabs.Screen
                 name="reservations"
                 options={{
-                    title: "Bookings",
+                    title: "About Us",
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <TabIcon
