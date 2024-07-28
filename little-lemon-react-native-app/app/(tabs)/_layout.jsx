@@ -7,13 +7,13 @@ const TabIcon = ({ icon, color, name, focused }) => {
     const iconSize = focused ? 26 : 24; // Increase icon size when focused
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-        <Image
-          source={icon}
-          resizeMode="contain"
-          style={{ width: iconSize, height: iconSize, tintColor: color }}
-        />
-      </View>
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', gap: 2 }}>
+            <Image
+                source={icon}
+                resizeMode="contain"
+                style={{ width: iconSize, height: iconSize, tintColor: color }}
+            />
+        </View>
     );
 };
 
