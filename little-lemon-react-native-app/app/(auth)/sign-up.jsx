@@ -22,7 +22,6 @@ const SignUp = () => {
       <ScrollView>
         <View
           className="w-full flex justify-center min-h-[80vh] px-4 my-6"
-          style={{}} //add style
         >
           <Image
             source={images.logo2}

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { ScrollView, Text, Image, View } from 'react-native';
-import { Redirect, router } from 'expo-router'; // Navigation
+import { Redirect, router } from 'expo-router';
 import { Link } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from "../constants";
