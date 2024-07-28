@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity, Alert } from 'react-native';
 import React from 'react';
 import { Link, useRouter } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -17,10 +17,19 @@ const SignIn = () => {
 
   const router = useRouter();
 
+  // To be changed
+  const showAlert = () => {
+    Alert.alert(
+      "Demo App",
+      "This is a demo app, please create a temporary user.",
+      [{ text: "OK" }]
+    );
+  };
+
   const submit = async () => {
     setIsSubmitting(true);
     try {
-      // Add submit logic
+      showAlert(); // Show alert for demo purpose
     } catch (error) {
       console.error(error);
     } finally {
