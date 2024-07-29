@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Image } from 'react-native';
+import { View, Text, ScrollView, Image, Alert } from 'react-native';
 import React from 'react';
 import { Link, router } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -25,8 +25,18 @@ const SignUp = () => {
       return;
     }
 
+    // Demo purposes: To be removed
+    const showAlert = () => {
+      Alert.alert(
+        "Demo App",
+        "A temporary user has been created.",
+        [{ text: "OK" }]
+      );
+    };
+
     setIsSubmitting(true);
     try {
+      showAlert(); // Show alert for demo purpose
       await saveUser(form); // Use the saveUser function from the utils
       router.push('/home');
     } catch (error) {
