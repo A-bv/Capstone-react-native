@@ -48,7 +48,12 @@ const Profile = () => {
   const handleLogoutConfirmed = async () => {
     try {
       await removeUser(); // Use removeUser from utils/storage
-      router.dismissAll();
+      if (router.canDismiss()) {
+        router.dismissAll();
+      } else {
+        // Temporary solution
+        Alert.alert('Cannot logout this time', 'Please restart the app to logout.');
+      }
     } catch (error) {
       setError('Failed to logout');
     }
