@@ -3,9 +3,8 @@ import { View, Text, ScrollView, Image, ActivityIndicator, TouchableOpacity, Ale
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/Header';
 import { icons, images } from '../../constants';
-import { getUser } from '../../utils/storage';
+import { getUser, removeUser } from '../../utils/storage'; // Import from utils/storage
 import { useRouter } from 'expo-router';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -16,7 +15,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const user = await getUser();
+        const user = await getUser(); // Use getUser from utils/storage
         setUserInfo(user);
       } catch (error) {
         setError('Failed to load user data');
@@ -48,7 +47,7 @@ const Profile = () => {
 
   const handleLogoutConfirmed = async () => {
     try {
-      await AsyncStorage.removeItem('user');
+      await removeUser(); // Use removeUser from utils/storage
       router.dismissAll();
     } catch (error) {
       setError('Failed to logout');

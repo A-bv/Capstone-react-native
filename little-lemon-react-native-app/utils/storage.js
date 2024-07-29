@@ -17,3 +17,11 @@ export const getUser = async () => {
     return null;
   }
 };
+
+export const removeUser = async () => {
+  try {
+    await AsyncStorage.removeItem('user');
+  } catch (error) {
+    console.error('Failed to remove data from AsyncStorage:', error);
+  }
+};
