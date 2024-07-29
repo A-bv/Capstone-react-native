@@ -17,7 +17,7 @@ const SignIn = () => {
 
   const router = useRouter();
 
-  // To be changed
+  // Demo purposes: To be removed
   const showAlert = () => {
     Alert.alert(
       "Demo App",
@@ -29,7 +29,7 @@ const SignIn = () => {
   const submit = async () => {
     setIsSubmitting(true);
     try {
-      showAlert(); // Show alert for demo purpose
+      showAlert(); // Show alert for demo app purpose
     } catch (error) {
       console.error(error);
     } finally {
