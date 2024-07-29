@@ -24,8 +24,7 @@ export default function App() {
   }, []);
 
   if (!isUserLoaded) {
-    // Render a loading indicator while checking user
-    return null; // You can replace this with an actual loading component if desired
+    return null;
   }
 
   return userExists ? <Home /> : <WelcomeScreen />;
