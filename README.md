@@ -9,9 +9,9 @@ The app has the following sections:
 - **About Us**: Presents the restaurant with its contact information.
 - **Profile**: Displays the user profile.
 
-Including: 
-- **Onboarding**: Provides a way to sign up or login, or continue as a guest.
-- **Validation**: Notifies the user for any invalid inputs.
+It also includes: 
+- **An onboarding process**: Provides a way to sign up or login, or continue as a guest.
+- **Field validation**: Notifies the user for any invalid inputs.
 
 ## Getting Started
 
