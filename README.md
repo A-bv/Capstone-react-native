@@ -17,6 +17,9 @@ It also includes:
 
 ### Prerequisites
 
+Recomanded IDE to install: Visual studio Code
+
+
 Ensure you have the following installed:
 
 - Node.js (v14 or later)
