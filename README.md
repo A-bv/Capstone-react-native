@@ -4,12 +4,12 @@ Welcome to the Little Lemon Restaurant App! This React Native app is developed w
 
 [![Watch Video](https://a-bv.github.io/Capstone-react-native/video/video-thumbnail.png)](https://a-bv.github.io/Capstone-react-native/video/VideoLittleLemonReactNative.mp4)
 
-The app includes a tab menu with the following sections:
+The app has the following sections:
 - **Home**: Lists meals, including descriptions, pictures and prices.
 - **About Us**: Presents the restaurant with its contact information.
 - **Profile**: Displays the user profile.
 
-It also includes: 
+Including: 
 - **Onboarding**: Provides a way to sign up or login, or continue as a guest.
 - **Validation**: Notifies the user for any invalid inputs.
 
