@@ -11,7 +11,7 @@ It also includes:
 - **Onboarding**: Provides a way to sign up or login, or continue as a guest.
 - **Validation**: Notifies the user for any invalid inputs.
 
-### Demo:
+You can watch a preview of the app in action by clicking the video below:
 [![Watch Video](https://a-bv.github.io/Capstone-react-native/video/video-thumbnail.png)](https://a-bv.github.io/Capstone-react-native/video/VideoLittleLemonReactNative.mp4)
 
 ## Getting Started
