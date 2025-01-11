@@ -17,7 +17,7 @@ It also includes:
 
 ### Prerequisites
 
-Recomanded IDE to install: Visual studio Code
+Recommended IDE: Visual Studio Code (VS Code).
 
 
 Ensure you have the following installed:
