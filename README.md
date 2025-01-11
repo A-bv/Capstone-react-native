@@ -9,7 +9,7 @@ Welcome to the Little Lemon Restaurant App! This React Native app is developed w
 - **Profile**: Displays the user profile.
 
 ### Preview:
-[![Watch Video](https://a-bv.github.io/Capstone-react-native/images/video-thumbnail.jpg)](https://a-bv.github.io/Capstone-react-native/video/VideoLittleLemonReactNative.mp4)
+[![Watch Video](https://a-bv.github.io/Capstone-react-native/video/video-thumbnail.jpg)](https://a-bv.github.io/Capstone-react-native/video/VideoLittleLemonReactNative.mp4)
 
 ## Getting Started
 
