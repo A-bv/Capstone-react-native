@@ -2,9 +2,14 @@
 
 Welcome to the Little Lemon Restaurant App! This React Native app is developed with Expo and styled using Tailwind CSS through NativeWind. It features an onboarding process, including sign-in, sign-up, and guest login options. The app includes a tab menu with the following sections:
 
-- **Home**: Displays meals.
-- **About Us**: Provides restaurant description and contact information.
+- **Onboarding**: Provides a way to sign up or login, or continue as a guest.
+- **Validation**: Notifies the user for any invalid inputs.
+- **Home**: Lists meals, including descriptions, pictures and prices.
+- **About Us**: Presents the restaurant with its contact information.
 - **Profile**: Displays the user profile.
+
+### Preview:
+[![Watch Video](https://a-bv.github.io/Capstone-react-native/images/video-thumbnail.jpg)](https://a-bv.github.io/Capstone-react-native/video/VideoLittleLemonReactNative.mp4)
 
 ## Getting Started
 
