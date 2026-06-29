@@ -28,31 +28,24 @@ const Profile = () => {
   }, []);
 
   // Demo purposes: To be removed
-  const showAlert = () => {
+  const confirmLogout = () => {
     Alert.alert(
-      "Demo App",
-      "Your temporary user will be deleted.",
+      "Log out",
+      "Are you sure you want to log out? Your account data on this device will be removed.",
       [
-        {
-          text: "Cancel",
-          style: "cancel"
-        },
-        {
-          text: "OK",
-          onPress: () => handleLogoutConfirmed()
-        }
+        { text: "Cancel", style: "cancel" },
+        { text: "Log out", style: "destructive", onPress: () => handleLogoutConfirmed() }
       ]
     );
   };
 
   const handleLogoutConfirmed = async () => {
     try {
-      await removeUser(); // Use removeUser from utils/storage
+      await removeUser();
       if (router.canDismiss()) {
         router.dismissAll();
       } else {
-        // Temporary solution
-        Alert.alert('Cannot logout this time', 'Please restart the app to logout.');
+        router.replace('/');
       }
     } catch (error) {
       setError('Failed to logout');
@@ -61,7 +54,7 @@ const Profile = () => {
 
   const handleLogout = () => {
     if (userInfo) {
-      showAlert(); // Show alert for demo app purpose
+      confirmLogout();
     } else {
       handleLogoutConfirmed();
     }
