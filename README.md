@@ -55,6 +55,29 @@ Once the app is running, you can:
 - **Create an Account:** Register a new account, or continue as a guest.
 - **Browse the Menu:** Explore the restaurant's menu items.
 
+## Project Structure
+
+The application code lives in the `little-lemon-react-native-app/` subdirectory:
+
+```
+little-lemon-react-native-app/
+├── app/            # Screens and navigation (expo-router file-based routing)
+│   ├── (auth)/     # Sign in / sign up flow
+│   └── (tabs)/     # Home, About Us and Profile tabs
+├── components/     # Reusable UI components (Header, FormField, CustomButton...)
+├── constants/      # Icon and image references
+└── utils/          # Storage helpers and form validation
+```
+
+## Running Tests
+
+Unit tests are written with [Jest](https://jestjs.io/). From the
+`little-lemon-react-native-app/` directory:
+
+```bash
+npm test
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
