@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import WelcomeScreen from './welcomeScreen';
-import Home from './(tabs)/home';
 import { getUser } from '../utils/storage';
 import { Redirect } from 'expo-router';
 
