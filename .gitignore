@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Design source files (large binaries — keep out of git history)
+*.fig
+
+# Logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*

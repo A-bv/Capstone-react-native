@@ -22,16 +22,16 @@ Recommended IDE: Visual Studio Code (VS Code).
 
 Ensure you have the following installed:
 
-- Node.js (v14 or later)
-- Expo CLI (`npm install -g expo-cli`)
+- Node.js (v18 or later)
+- The Expo CLI is run via `npx expo` (no global install needed)
 
 ### Setup
 
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/yourusername/capstone-react-native.git
-    cd capstone-react-native
+    git clone https://github.com/A-bv/Capstone-react-native.git
+    cd Capstone-react-native/little-lemon-react-native-app
     ```
 
 2. **Install Dependencies**
@@ -43,7 +43,7 @@ Ensure you have the following installed:
 3. **Run the app**
 
     ```bash
-    npm start -c
+    npx expo start -c
     ```
 
     Then, choose to run the app on an iOS or Android emulator.
@@ -52,7 +52,7 @@ Ensure you have the following installed:
 
 Once the app is running, you can:
 
-- **Create an Account:** Register a new account, or loggin as a guest.
+- **Create an Account:** Register a new account, or continue as a guest.
 - **Browse the Menu:** Explore the restaurant's menu items.
 
 ## License
@@ -66,8 +66,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Additional Resources
 
-- **Wireframes**: Two wireframes are available in the repository and can be opened with Figma.
-
----
-
-Feel free to adjust this README to better fit your project’s specifics and requirements!
+- **Design files**: The wireframes and UX prototype were created in Figma. They are kept out of the
+  repository to keep it lightweight; ask the maintainer for access to the Figma files.
