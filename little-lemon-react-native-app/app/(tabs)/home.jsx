@@ -51,8 +51,8 @@ const Home = () => {
         <View className="p-4 flex-1">
           <Text className="text-card-title font-bold text-highlight-darkGray text-lg">ORDER FOR DELIVERY!</Text>
           <View className="flex-row flex-wrap gap-2 mb-6 mt-2">
-            {['Lunch', 'Mains', 'Desserts', 'Specials'].map((category, index) => (
-              <View key={index} className="bg-secondary-pale py-1 px-3 rounded-xl">
+            {['Lunch', 'Mains', 'Desserts', 'Specials'].map((category) => (
+              <View key={category} className="bg-secondary-pale py-1 px-3 rounded-xl">
                 <Text className="text-highlight-darkGray text-lg">
                   {category}
                 </Text>
@@ -60,8 +60,8 @@ const Home = () => {
             ))}
           </View>
 
-          {meals.map((meal, index) => (
-            <View key={index} className="flex-row justify-between items-center mb-4">
+          {meals.map((meal) => (
+            <View key={meal.name} className="flex-row justify-between items-center mb-4">
               <View className="flex-1 pr-4">
                 <Text className="text-card-title font-bold text-highlight-darkGray text-lg">{meal.name}</Text>
                 <Text className="text-paragraph text-highlight-darkGray text-lg font-karla-regular">{meal.description}</Text>
