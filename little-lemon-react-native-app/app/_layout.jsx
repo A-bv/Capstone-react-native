@@ -11,9 +11,10 @@ const RootLayout = () => {
   })
 
   useEffect(() => {
-    if(error) throw error;
+    // If a font fails to load, log it and continue rather than crashing the app.
+    if(error) console.error('Failed to load fonts:', error);
 
-    if(FontsLoaded) SplashScreen.hideAsync();
+    if(FontsLoaded || error) SplashScreen.hideAsync();
   }, [FontsLoaded, error])
 
   if(!FontsLoaded && !error) return null;
@@ -23,7 +24,6 @@ const RootLayout = () => {
         <Stack.Screen name="index" options={{ headerShown: false}} />
         <Stack.Screen name="(auth)" options={{ headerShown: false}} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
-        {/*<Stack.Screen name="/search/[query]" options={{ headerShown: false}} />*/}
     </Stack>
     )
 }
