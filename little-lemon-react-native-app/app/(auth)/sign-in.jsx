@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, ScrollView, Image, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Link, useRouter } from "expo-router";
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,31 +7,38 @@ import { images } from "../../constants";
 import FormField from '../../components/FormField.jsx';
 import CustomButton from '../../components/CustomButton.jsx';
 import { Ionicons } from '@expo/vector-icons';
+import { getUser } from '../../utils/storage';
 
 const SignIn = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const router = useRouter();
 
-  // Demo purposes: To be removed
-  const showAlert = () => {
-    Alert.alert(
-      "Demo App",
-      "This is a demo app, please create a temporary user.",
-      [{ text: "OK" }]
-    );
-  };
-
   const submit = async () => {
+    setErrorMessage("");
+
+    if (!form.email || !form.password) {
+      setErrorMessage("Please enter your email and password.");
+      return;
+    }
+
     setIsSubmitting(true);
     try {
-      showAlert(); // Show alert for demo app purpose
+      // This demo app has no backend: a local account must exist first.
+      const user = await getUser();
+      if (user) {
+        router.replace('/home');
+      } else {
+        setErrorMessage("No account found on this device. Please sign up first.");
+      }
     } catch (error) {
       console.error(error);
+      setErrorMessage("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -70,6 +77,10 @@ const SignIn = () => {
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
           />
+
+          {errorMessage ? (
+            <Text className="text-red-500 text-sm mt-4 text-center">{errorMessage}</Text>
+          ) : null}
 
           <CustomButton
             title="Sign In"
