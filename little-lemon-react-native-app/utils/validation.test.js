@@ -16,6 +16,16 @@ describe('validateForm', () => {
     expect(errors.username).toBe('Username is required');
   });
 
+  it('treats a whitespace-only username as missing', () => {
+    const errors = validateForm({ ...validForm, username: '   ' });
+    expect(errors.username).toBe('Username is required');
+  });
+
+  it('treats a whitespace-only email as missing', () => {
+    const errors = validateForm({ ...validForm, email: '   ' });
+    expect(errors.email).toBe('Email is required');
+  });
+
   it('requires an email', () => {
     const errors = validateForm({ ...validForm, email: '' });
     expect(errors.email).toBe('Email is required');

@@ -1,6 +1,9 @@
 export const validateForm = (form) => {
     const newErrors = {};
-    const { username, email, password } = form;
+    const { password } = form;
+    // Trim username/email so whitespace-only input is treated as empty.
+    const username = form.username?.trim();
+    const email = form.email?.trim();
 
     if (!username) {
         newErrors.username = "Username is required";
