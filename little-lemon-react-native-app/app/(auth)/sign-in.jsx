@@ -95,7 +95,7 @@ const SignIn = () => {
             </Text>
             <Link
               href="/sign-up"
-              className="text-lg font-karla-regular text-secondary"
+              className="text-lg font-karla-regular text-secondary-pink"
             >
               Sign up
             </Link>

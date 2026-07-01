@@ -24,7 +24,7 @@ const WelcomeScreen = () => {
           <Text className="text-3xl text-white font-bold text-center font-markazi-medium">
             Welcome to Little Lemon!{"\n"}
             Fresh &{" "}
-            <Text className="text-secondary-200 text-primary-yellow">Delicious</Text>
+            <Text className="text-primary-yellow">Delicious</Text>
           </Text>
 
           <CustomButton
@@ -39,7 +39,7 @@ const WelcomeScreen = () => {
             </Text>
             <Link
               href="/home"
-              className="text-lg font-karla-regular text-secondary"
+              className="text-lg font-karla-regular text-secondary-pink"
             >
               Continue
             </Link>
