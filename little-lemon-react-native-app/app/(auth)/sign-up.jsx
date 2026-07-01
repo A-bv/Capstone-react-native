@@ -86,12 +86,12 @@ const SignUp = () => {
           />
 
           <View className="flex justify-center pt-5 flex-row gap-2">
-            <Text className="text-lg text-gray-100 font-pregular">
+            <Text className="text-lg text-gray-100 font-karla-regular">
               Already have an account?
             </Text>
             <Link
               href="/sign-in"
-              className="text-lg font-psemibold text-secondary"
+              className="text-lg font-karla-regular text-secondary"
             >
               Sign in
             </Link>
