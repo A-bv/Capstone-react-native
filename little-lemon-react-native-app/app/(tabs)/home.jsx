@@ -65,7 +65,7 @@ const Home = () => {
               <View className="flex-1 pr-4">
                 <Text className="text-card-title font-bold text-highlight-darkGray text-lg">{meal.name}</Text>
                 <Text className="text-paragraph text-highlight-darkGray text-lg font-karla-regular">{meal.description}</Text>
-                <Text className="text-highlight font-bold mt-1 text-lg">{meal.price}</Text>
+                <Text className="text-primary-green font-bold mt-1 text-lg">{meal.price}</Text>
               </View>
               <Image source={meal.image} className="w-20 h-20 rounded-xl" />
             </View>
