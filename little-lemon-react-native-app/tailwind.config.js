@@ -32,7 +32,7 @@ module.exports = {
         'default': '1rem',
       },
       fontFamily: {
-        'markazi-medium': ['MarkaziText-medium', 'serif'],
+        'markazi-medium': ['MarkaziText-Medium', 'serif'],
         'karla-regular': ['Karla-Regular', 'sans-serif'],
       },
     },
