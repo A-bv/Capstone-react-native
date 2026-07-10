@@ -76,6 +76,7 @@ const SignUp = () => {
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
             error={errors.password}
+            isPassword
           />
 
           <CustomButton

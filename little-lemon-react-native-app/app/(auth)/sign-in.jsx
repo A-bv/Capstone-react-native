@@ -29,12 +29,16 @@ const SignIn = () => {
 
     setIsSubmitting(true);
     try {
-      // This demo app has no backend: a local account must exist first.
+      // This demo app has no backend, so the only credential we can
+      // verify is the email against the account saved on this device.
+      // Passwords are never stored, so they cannot be checked here.
       const user = await getUser();
-      if (user) {
-        router.replace('/home');
-      } else {
+      if (!user) {
         setErrorMessage("No account found on this device. Please sign up first.");
+      } else if (user.email?.trim().toLowerCase() !== form.email.trim().toLowerCase()) {
+        setErrorMessage("That email does not match the account on this device.");
+      } else {
+        router.replace('/home');
       }
     } catch (error) {
       console.error(error);
@@ -76,6 +80,7 @@ const SignIn = () => {
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
+            isPassword
           />
 
           {errorMessage ? (

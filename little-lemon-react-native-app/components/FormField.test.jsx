@@ -1,4 +1,5 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import FormField from './FormField';
 
@@ -34,5 +35,33 @@ describe('FormField', () => {
     fireEvent.changeText(screen.getByPlaceholderText('you@example.com'), 'jane@example.com');
 
     expect(handleChangeText).toHaveBeenCalledWith('jane@example.com');
+  });
+
+  it('masks the input and shows a reveal toggle only when isPassword is set', () => {
+    const { rerender } = render(
+      <FormField
+        title="Password"
+        value="secret"
+        placeholder="password"
+        handleChangeText={() => {}}
+        isPassword
+      />
+    );
+
+    expect(screen.getByPlaceholderText('password').props.secureTextEntry).toBe(true);
+    const toggle = screen.UNSAFE_getAllByType(TouchableOpacity);
+    expect(toggle.length).toBe(1);
+
+    rerender(
+      <FormField
+        title="Password"
+        value="secret"
+        placeholder="password"
+        handleChangeText={() => {}}
+      />
+    );
+
+    expect(screen.getByPlaceholderText('password').props.secureTextEntry).toBe(false);
+    expect(screen.UNSAFE_queryAllByType(TouchableOpacity).length).toBe(0);
   });
 });
