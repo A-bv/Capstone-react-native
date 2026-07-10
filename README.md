@@ -20,6 +20,24 @@ It also includes:
 > so sign-in verifies the email against the local account rather than a
 > real credential. It is a portfolio/capstone project, not a production app.
 
+## Screenshots
+
+![Little Lemon screens — onboarding, menu, about us, and profile](docs/screenshots.png)
+
+## Tech Stack
+
+| Area | Technology | Version |
+| --- | --- | --- |
+| Framework | [Expo](https://expo.dev/) SDK | 52 |
+| Runtime | React Native | 0.76.9 |
+| UI | React | 18.3.1 |
+| Navigation | [Expo Router](https://docs.expo.dev/router/introduction/) (file-based) | 4.0 |
+| Styling | [NativeWind](https://www.nativewind.dev/) + Tailwind CSS | 2.0 / 3.3 |
+| Local storage | [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) | 1.23 |
+| Testing | [Jest](https://jestjs.io/) + React Native Testing Library | 29.7 / 12.9 |
+
+Requires Node.js 18+. See [`package.json`](little-lemon-react-native-app/package.json) for the full dependency list.
+
 ## Getting Started
 
 ### Prerequisites
