@@ -17,7 +17,7 @@ const Profile = () => {
       try {
         const user = await getUser(); // Use getUser from utils/storage
         setUserInfo(user);
-      } catch (error) {
+      } catch {
         setError('Failed to load user data');
       } finally {
         setLoading(false);
@@ -27,7 +27,6 @@ const Profile = () => {
     fetchUserInfo();
   }, []);
 
-  // Demo purposes: To be removed
   const confirmLogout = () => {
     Alert.alert(
       "Log out",
@@ -47,7 +46,7 @@ const Profile = () => {
       } else {
         router.replace('/');
       }
-    } catch (error) {
+    } catch {
       setError('Failed to logout');
     }
   };
