@@ -13,6 +13,11 @@ It also includes:
 - **An onboarding process**: Provides a way to sign up or login, or continue as a guest.
 - **Field validation**: Notifies the user for any invalid inputs.
 
+> **Note:** This is a front-end demo with no backend. Accounts are stored
+> only on the device (via AsyncStorage) and passwords are never persisted,
+> so sign-in verifies the email against the local account rather than a
+> real credential. It is a portfolio/capstone project, not a production app.
+
 ## Getting Started
 
 ### Prerequisites
