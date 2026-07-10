@@ -7,7 +7,6 @@ module.exports = {
         primary: {
           green: '#495E57',
           yellow: '#F4CE14',
-          zzz: '#333333',
         },
         secondary: {
           pink: '#EE9972',
@@ -16,6 +15,14 @@ module.exports = {
         highlight: {
           lightGray: '#EDEFEE',
           darkGray: '#333333',
+        },
+        black: {
+          DEFAULT: '#000000',
+          100: '#1E1E2D',
+          200: '#232533',
+        },
+        gray: {
+          100: '#CDCDE0',
         },
       },
       fontSize: {
