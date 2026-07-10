@@ -8,7 +8,7 @@ const Header = ({ title, subtitle, description, imageSource, headerHeight = 'h-6
         <Text className="text-3xl text-primary-yellow font-markazi-medium">{title}</Text>
         <Text className="text-xl text-white font-karla-regular">{subtitle}</Text>
         {description && (
-          <Text className="text-md text-white font-karla-regular mt-2">{description}</Text>
+          <Text className="text-base text-white font-karla-regular mt-2">{description}</Text>
         )}
       </View>
       <View className="justify-start mt-2">
