@@ -1,9 +1,9 @@
-import { Image, View, Text } from 'react-native';
+import { Image, View } from 'react-native';
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { icons } from "../../constants";
 
-const TabIcon = ({ icon, color, name, focused }) => {
+const TabIcon = ({ icon, color, focused }) => {
     const iconSize = focused ? 26 : 24; // Increase icon size when focused
 
     return (
@@ -41,14 +41,13 @@ const TabsLayout = () => {
                         <TabIcon
                             icon={icons.home}
                             color={color}
-                            name="Home"
                             focused={focused}
                         />
                     ),
                 }}
             />
             <Tabs.Screen
-                name="reservations"
+                name="about-us"
                 options={{
                     title: "About Us",
                     headerShown: false,
@@ -56,7 +55,6 @@ const TabsLayout = () => {
                         <TabIcon
                             icon={icons.bookmark}
                             color={color}
-                            name="About Us"
                             focused={focused}
                         />
                     ),
@@ -71,7 +69,6 @@ const TabsLayout = () => {
                         <TabIcon
                             icon={icons.profile}
                             color={color}
-                            name="Profile"
                             focused={focused}
                         />
                     ),
