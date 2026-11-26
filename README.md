@@ -41,7 +41,7 @@ Like any app, Little Lemon is organized by **responsibility** — what each piec
 The diagram groups every part under one of these; the sections below it go a level deeper.
 
 <p align="center">
-  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="The UI is the hub at the top: its screens (Welcome, Sign in, Sign up, Home, About Us, Profile) and the reusable pieces they are built from (Header, FormField, CustomButton, AboutUsImages), styled with NativeWind. Three arrows run from the UI to the parts it uses: to Navigation (Expo Router — chooses the first screen based on whether you are signed in, then moves you between a sign-in/sign-up stack and the main tabs), to Logic (validation.js — the rules that check the sign-up form before saving), and to Data (state kept in memory, persistence that saves the account on the phone via AsyncStorage, and no networking because there is no server). In short: the UI uses navigation to move between screens, logic to check input, and data to save the account."></a>
+  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="The UI (built with React Native, styled with NativeWind) holds the screens — Welcome, Sign in, Sign up, Home, About Us, Profile — and the reusable pieces they are made from (Header, FormField, CustomButton, AboutUsImages). Arrows from the UI show the tool used for each task: move between screens uses Expo Router; check the sign-up form uses validation.js; save and load data uses useState for in-memory state and AsyncStorage for the account on the device; there is no server."></a>
 </p>
 
 ### UI

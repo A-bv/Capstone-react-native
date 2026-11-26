@@ -1,57 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 400" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#7d8c87"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="980" height="520" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
+  <rect x="0" y="0" width="980" height="400" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
+  <text x="30" y="40" font-size="20" font-weight="700" fill="#22302b">How the app is built</text>
 
-  <text x="30" y="36" font-size="20" font-weight="700" fill="#22302b">How the app is built</text>
-  <text x="30" y="56" font-size="12.5" fill="#5f6f6a">The UI is what you see; underneath, it uses three things — navigation, logic and data.</text>
+  <!-- ===== UI (hub) ===== -->
+  <rect x="246" y="60" width="488" height="96" rx="12" fill="#e9f0ed" stroke="#495E57" stroke-width="2"/>
+  <text x="266" y="86" font-size="14.5" fill="#22302b"><tspan font-weight="700">UI</tspan>  ·  <tspan font-weight="700" fill="#2f7d5b">React Native + NativeWind</tspan></text>
+  <text x="266" y="110" font-size="11.5" fill="#243029"><tspan font-weight="700">Screens:</tspan> Welcome · Sign in · Sign up · Home · About Us · Profile</text>
+  <text x="266" y="132" font-size="11.5" fill="#243029"><tspan font-weight="700">Pieces:</tspan> Header · FormField · CustomButton · AboutUsImages</text>
 
-  <!-- ===== UI (the hub) ===== -->
-  <rect x="246" y="78" width="488" height="120" rx="12" fill="#e9f0ed" stroke="#495E57" stroke-width="2"/>
-  <text x="266" y="102" font-size="14.5" font-weight="700" fill="#22302b">UI — what you see &amp; tap</text>
-  <text x="266" y="126" font-size="11.5" fill="#243029"><tspan font-weight="700">Screens:</tspan> Welcome · Sign in · Sign up · Home · About Us · Profile</text>
-  <text x="266" y="148" font-size="11.5" fill="#243029"><tspan font-weight="700">Reusable pieces:</tspan> Header · FormField · CustomButton · AboutUsImages</text>
-  <text x="266" y="178" font-size="11" fill="#8a7320">Styled with NativeWind — brand colors &amp; fonts, set once and used everywhere</text>
-
-  <!-- arrows: UI uses the three concerns -->
-  <path d="M 360,198 V 222 H 170 V 250" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="265" y="216" text-anchor="middle" font-size="10.5" fill="#5f6f6a">to move between screens</text>
-  <path d="M 490,198 V 250" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="498" y="228" font-size="10.5" fill="#5f6f6a">to check input</text>
-  <path d="M 620,198 V 222 H 810 V 250" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="715" y="216" text-anchor="middle" font-size="10.5" fill="#5f6f6a">to read &amp; save data</text>
+  <!-- arrows: task on the arrow, tool in the box -->
+  <path d="M 360,156 V 182 H 170 V 212" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="265" y="176" text-anchor="middle" font-size="11" fill="#5f6f6a">move between screens</text>
+  <path d="M 490,156 V 212" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="498" y="190" font-size="11" fill="#5f6f6a">check the form</text>
+  <path d="M 620,156 V 182 H 810 V 212" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="715" y="176" text-anchor="middle" font-size="11" fill="#5f6f6a">save &amp; load data</text>
 
   <!-- ===== Navigation ===== -->
-  <rect x="40" y="250" width="270" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="58" y="276" font-size="13.5" font-weight="700" fill="#22302b">Navigation</text>
-  <text x="58" y="293" font-size="10.5" fill="#5f6f6a">Expo Router</text>
-  <text x="58" y="320" font-size="11.5" fill="#243029">Chooses the first screen to show</text>
-  <text x="58" y="338" font-size="11.5" fill="#243029">(are you signed in?), then lets you</text>
-  <text x="58" y="356" font-size="11.5" fill="#243029">move around — a sign-in / sign-up</text>
-  <text x="58" y="374" font-size="11.5" fill="#243029">stack and the main tab bar.</text>
+  <rect x="40" y="212" width="270" height="120" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="58" y="238" font-size="12" font-weight="700" fill="#5f6f6a">NAVIGATION</text>
+  <text x="58" y="264" font-size="15" font-weight="700" fill="#2f7d5b">Expo Router</text>
+  <text x="58" y="290" font-size="11.5" fill="#243029">picks the first screen</text>
+  <text x="58" y="308" font-size="11.5" fill="#243029">+ stack and tab bar</text>
 
   <!-- ===== Logic ===== -->
-  <rect x="350" y="250" width="270" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="368" y="276" font-size="13.5" font-weight="700" fill="#22302b">Logic</text>
-  <text x="368" y="293" font-size="10.5" fill="#5f6f6a">validation.js</text>
-  <text x="368" y="320" font-size="11.5" fill="#243029">The app's rules. Checks the</text>
-  <text x="368" y="338" font-size="11.5" fill="#243029">sign-up form — required fields,</text>
-  <text x="368" y="356" font-size="11.5" fill="#243029">a valid email, a long-enough</text>
-  <text x="368" y="374" font-size="11.5" fill="#243029">password — before saving.</text>
+  <rect x="350" y="212" width="270" height="120" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="368" y="238" font-size="12" font-weight="700" fill="#5f6f6a">LOGIC</text>
+  <text x="368" y="264" font-size="15" font-weight="700" fill="#2f7d5b">validation.js</text>
+  <text x="368" y="290" font-size="11.5" fill="#243029">sign-up form rules —</text>
+  <text x="368" y="308" font-size="11.5" fill="#243029">email &amp; password</text>
 
   <!-- ===== Data ===== -->
-  <rect x="660" y="250" width="280" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="678" y="276" font-size="13.5" font-weight="700" fill="#22302b">Data</text>
-  <text x="678" y="300" font-size="11.5" fill="#243029"><tspan font-weight="700">State</tspan> — form input &amp; loading,</text>
-  <text x="678" y="316" font-size="11.5" fill="#243029">kept in memory while it runs.</text>
-  <text x="678" y="340" font-size="11.5" fill="#243029"><tspan font-weight="700">Persistence</tspan> — saves the account</text>
-  <text x="678" y="356" font-size="11.5" fill="#243029">on the phone (AsyncStorage).</text>
-  <text x="678" y="382" font-size="11.5" fill="#9aa5a1"><tspan font-weight="700">Networking</tspan> — none (no server).</text>
-
-  <!-- footnote -->
-  <text x="30" y="440" font-size="11" fill="#5f6f6a">Read it as a sentence: <tspan font-style="italic">the UI uses navigation to move between screens, logic to check input, and data to save the account.</tspan></text>
+  <rect x="660" y="212" width="280" height="120" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="678" y="238" font-size="12" font-weight="700" fill="#5f6f6a">DATA</text>
+  <text x="678" y="262" font-size="11.5" fill="#243029">state &#8594; <tspan font-weight="700" fill="#2f7d5b">useState</tspan> <tspan fill="#5f6f6a">(in memory)</tspan></text>
+  <text x="678" y="286" font-size="11.5" fill="#243029">saved &#8594; <tspan font-weight="700" fill="#2f7d5b">AsyncStorage</tspan> <tspan fill="#5f6f6a">(on device)</tspan></text>
+  <text x="678" y="310" font-size="11.5" fill="#243029">server &#8594; <tspan font-weight="700" fill="#9aa5a1">none</tspan></text>
 </svg>
