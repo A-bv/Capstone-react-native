@@ -31,41 +31,39 @@ A React Native app built with [Expo](https://expo.dev/), using [Expo Router](htt
 
 ## Architecture
 
-The app is small and splits into a few clear parts:
+Like any app, Little Lemon is organized by **responsibility** — what each piece of code is in charge of:
 
-- **Navigation** decides which screen you see. The folder layout *is* the navigation, and `app/index` sends you to the Welcome screen or straight to the tabs, depending on whether an account is already saved.
-- **Screens** are what you look at: Welcome → Sign in / Sign up → the Home (menu), About Us and Profile tabs.
-- **Components** are the reusable building blocks — `Header`, `FormField`, `CustomButton`, `AboutUsImages` — that every screen is made from.
-- **Utilities** hold the logic: `storage` keeps the account on the phone, `validation` checks the sign-up form.
-- **Styling** comes from NativeWind, with the brand colors and fonts defined once.
+- **UI** — the screens you see and the reusable pieces they're built from (`Header`, `FormField`, `CustomButton`, `AboutUsImages`), styled with NativeWind.
+- **Navigation** — how you move between screens (Expo Router).
+- **Logic** — the app's rules (form validation).
+- **Data** — the information it works with: short-lived **state** while it runs, and the account **saved on the device** (AsyncStorage). There is **no networking** — the app has no backend.
 
-The diagram shows how these fit together; the sections below it go a level deeper on each.
+The diagram groups every part under one of these; the sections below it go a level deeper.
 
 <p align="center">
-  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="A plain top-to-bottom map in four layers. Navigation (getting around): the app starts and loads fonts, then checks whether someone is signed in — if not it shows Welcome, if so it goes to the main tabs. Screens (the pages you see): Welcome leads to an Account area (Sign in or Sign up), then to the main tabs — Home (the menu), About Us and Profile. Behind the scenes (pieces and logic): screens are built from reusable UI pieces (a title bar, text field, button and photo strip) and use saving-and-checking logic (a sign-up form check, and a module that saves and loads the account in the phone's storage). Styling (colors and fonts): one place sets the colors and fonts used on every screen."></a>
+  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="The app's parts grouped by responsibility. UI (what you see and tap): the screens — Welcome, Sign in, Sign up, Home, About Us, Profile — and the reusable pieces they are built from (Header, FormField, CustomButton, AboutUsImages), styled with NativeWind. Navigation (moving between screens): Expo Router picks the first screen based on whether you are signed in, with a sign-in/sign-up stack and a main tab bar. Logic (the app's rules): validation checks the sign-up form. Data (the information it works with): short-lived state in memory, the account saved on the device via AsyncStorage, and no networking because the app has no backend."></a>
 </p>
+
+### UI
+
+- **Screens & reusable pieces:** screens stay small by composing `components/` — `Header`, `FormField`, `CustomButton`, `AboutUsImages` — so the same parts look and behave the same everywhere. `FormField` masks input from an explicit `isPassword` prop (with a reveal toggle) and shows a field's error inline.
+- **Styling:** NativeWind brings Tailwind's `className` to React Native, and `tailwind.config.js` defines the brand palette and the Markazi/Karla fonts in one place, so the look stays consistent.
 
 ### Navigation (Expo Router)
 
-- **File-based routing:** the folder layout *is* the navigation. `app/_layout.jsx` is the root stack and `app/index.jsx` is the entry point — it reads the saved user and either redirects to the tabs or shows the welcome screen, so the app opens on the right place.
-- **Route groups:** `(auth)` and `(tabs)` are parenthesized folders, so they group a stack and a tab bar without adding segments to the route. Navigation between screens uses `<Link>`, `router.push` and `Redirect`, with no separate navigator config.
-- **Fonts & splash:** `_layout` loads the Markazi and Karla fonts with `useFonts` and holds the splash screen until they're ready, continuing gracefully if a font fails to load rather than crashing.
+- **File-based routing:** the folder layout *is* the navigation. `app/_layout.jsx` is the root stack and `app/index.jsx` is the entry point — it reads the saved account and either goes to the tabs or shows the Welcome screen.
+- **Route groups:** `(auth)` and `(tabs)` group a stack and a tab bar without adding segments to the route. Screens move with `<Link>`, `router.push` and `Redirect`.
+- **Fonts & splash:** `_layout` loads the fonts with `useFonts` and holds the splash screen until they're ready, continuing gracefully if one fails.
 
-### Screens & components
+### Logic
 
-- **Thin screens, shared UI:** screens stay small by composing `components/` — `Header`, `FormField`, `CustomButton` and `AboutUsImages` — so the same pieces look and behave the same everywhere.
-- **`FormField`:** masks input from an explicit `isPassword` prop (with a reveal toggle) instead of matching on the label text, and shows a field's validation error inline.
+- **Validation:** `utils/validation.js` checks the sign-up form (required fields, email format, a minimum password length) before anything is saved, trimming whitespace so blank input counts as empty.
 
-### Styling (NativeWind)
+### Data
 
-- **Tailwind in React Native:** NativeWind brings Tailwind's `className` to RN components, so layout and style live next to the markup.
-- **Design tokens:** `tailwind.config.js` defines the brand palette (green, yellow) and the Markazi/Karla font families, so colors and type come from one place and stay consistent.
-
-### Data & persistence
-
-- **On-device storage:** `utils/storage.js` saves, reads and removes the user as JSON through [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) — there is no server.
-- **Validation:** `utils/validation.js` checks the sign-up form (required fields, email format, a minimum password length) before anything is saved, and trims whitespace so blank input counts as empty.
-- **Honest auth:** the password is never persisted; sign-in compares the typed email against the stored account, and the Profile screen reads that account and can clear it on logout.
+- **State (in memory):** screens use React's built-in state for form inputs and loading flags — no external state library.
+- **Persistence (on device):** `utils/storage.js` saves, reads and removes the account as JSON through [AsyncStorage](https://react-native-async-storage.github.io/async-storage/). The password is never persisted; sign-in compares the typed email against the stored account, and Profile can clear it on logout.
+- **Networking:** none — there is no backend, so all data stays on the device.
 
 ## Tech stack
 

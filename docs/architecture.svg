@@ -1,124 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
-  <defs>
-    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#7d8c87"/>
-    </marker>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="980" height="520" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
 
-  <rect x="0" y="0" width="980" height="600" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
+  <text x="30" y="34" font-size="20" font-weight="700" fill="#22302b">How the app is built — by responsibility</text>
+  <text x="30" y="54" font-size="12.5" fill="#5f6f6a">Every app is organized into the same kinds of parts. Here is each one, and what Little Lemon puts in it.</text>
 
-  <text x="30" y="36" font-size="21" font-weight="700" fill="#22302b">Little Lemon — how the app fits together</text>
-  <text x="30" y="57" font-size="12.5" fill="#5f6f6a">A plain map of the app's parts. Read it top to bottom.</text>
-
-  <!-- legend -->
-  <rect x="700" y="16" width="256" height="52" rx="9" fill="#f7f9f8" stroke="#cfd8d4" stroke-width="1.2"/>
-  <line x1="714" y1="36" x2="742" y2="36" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="750" y="40" font-size="12" fill="#243029">goes to</text>
-  <line x1="714" y1="56" x2="742" y2="56" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="750" y="60" font-size="12" fill="#243029">is built from / uses</text>
-
-  <!-- band labels: plain name + what it means -->
+  <!-- concern labels (name + plain meaning) -->
   <g text-anchor="middle">
-    <rect x="14" y="104" width="158" height="48" rx="9" fill="#495E57"/>
-    <text x="93" y="124" font-size="13.5" font-weight="700" fill="#ffffff">Navigation</text>
-    <text x="93" y="141" font-size="10.5" fill="#cfe0da">getting around</text>
-    <rect x="14" y="222" width="158" height="48" rx="9" fill="#495E57"/>
-    <text x="93" y="242" font-size="13.5" font-weight="700" fill="#ffffff">Screens</text>
-    <text x="93" y="259" font-size="10.5" fill="#cfe0da">the pages you see</text>
-    <rect x="14" y="400" width="158" height="48" rx="9" fill="#495E57"/>
-    <text x="93" y="420" font-size="13.5" font-weight="700" fill="#ffffff">Behind the scenes</text>
-    <text x="93" y="437" font-size="10.5" fill="#cfe0da">pieces &amp; logic</text>
-    <rect x="14" y="532" width="158" height="48" rx="9" fill="#495E57"/>
-    <text x="93" y="552" font-size="13.5" font-weight="700" fill="#ffffff">Styling</text>
-    <text x="93" y="569" font-size="10.5" fill="#cfe0da">colors &amp; fonts</text>
+    <rect x="14" y="98" width="172" height="52" rx="9" fill="#495E57"/>
+    <text x="100" y="120" font-size="14" font-weight="700" fill="#ffffff">UI</text>
+    <text x="100" y="138" font-size="10.5" fill="#cfe0da">what you see &amp; tap</text>
+    <rect x="14" y="238" width="172" height="46" rx="9" fill="#495E57"/>
+    <text x="100" y="258" font-size="14" font-weight="700" fill="#ffffff">Navigation</text>
+    <text x="100" y="274" font-size="10.5" fill="#cfe0da">moving between screens</text>
+    <rect x="14" y="306" width="172" height="46" rx="9" fill="#495E57"/>
+    <text x="100" y="326" font-size="14" font-weight="700" fill="#ffffff">Logic</text>
+    <text x="100" y="342" font-size="10.5" fill="#cfe0da">the app's rules</text>
+    <rect x="14" y="382" width="172" height="52" rx="9" fill="#495E57"/>
+    <text x="100" y="404" font-size="14" font-weight="700" fill="#ffffff">Data</text>
+    <text x="100" y="422" font-size="10.5" fill="#cfe0da">the info it works with</text>
   </g>
+
+  <!-- ===== UI ===== -->
+  <rect x="198" y="92" width="760" height="130" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="214" y="112" font-size="11.5" font-weight="700" fill="#495E57">SCREENS — the pages you see</text>
+  <g text-anchor="middle" fill="#243029" font-size="11.5" font-weight="700">
+    <rect x="214" y="118" width="116" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="272" y="138">Welcome</text>
+    <rect x="338" y="118" width="116" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="396" y="138">Sign in</text>
+    <rect x="462" y="118" width="116" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="520" y="138">Sign up</text>
+    <rect x="586" y="118" width="116" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="644" y="138">Home</text>
+    <rect x="710" y="118" width="116" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="768" y="138">About Us</text>
+    <rect x="834" y="118" width="110" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="889" y="138">Profile</text>
+  </g>
+  <text x="214" y="170" font-size="11.5" font-weight="700" fill="#495E57">REUSABLE PIECES</text>
+  <g text-anchor="middle" fill="#243029" font-size="11.5" font-weight="700">
+    <rect x="214" y="176" width="178" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="303" y="196">Header</text>
+    <rect x="400" y="176" width="178" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="489" y="196">FormField</text>
+    <rect x="586" y="176" width="178" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="675" y="196">CustomButton</text>
+    <rect x="772" y="176" width="172" height="30" rx="7" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.3"/><text x="858" y="196">AboutUsImages</text>
+  </g>
+  <text x="944" y="112" text-anchor="end" font-size="10.5" fill="#8a7320">styling: NativeWind — colors &amp; fonts, set once</text>
 
   <!-- ===== Navigation ===== -->
-  <g text-anchor="middle" fill="#243029">
-    <rect x="190" y="104" width="186" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="283" y="124" font-size="13.5" font-weight="700">The app starts</text>
-    <text x="283" y="141" font-size="10.5" fill="#5f6f6a">loads fonts &amp; splash screen</text>
-    <rect x="410" y="104" width="206" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5" stroke-dasharray="5 4"/>
-    <text x="513" y="124" font-size="13.5" font-weight="700">Signed in already?</text>
-    <text x="513" y="141" font-size="10.5" fill="#5f6f6a">checks for a saved account</text>
-  </g>
-  <line x1="376" y1="128" x2="408" y2="128" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="198" y="236" width="760" height="50" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="214" y="259" font-size="12.5" font-weight="700" fill="#243029">Expo Router</text>
+  <text x="214" y="275" font-size="11" fill="#5f6f6a">picks the first screen (are you signed in?), the sign-in / sign-up stack, and the main tab bar</text>
 
-  <!-- branches down to screens -->
-  <path d="M 455,152 V 172 H 269 V 204" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="330" y="167" font-size="11" font-weight="700" fill="#5f6f6a">No</text>
-  <path d="M 570,152 V 172 H 783 V 190" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="640" y="167" font-size="11" font-weight="700" fill="#5f6f6a">Yes</text>
+  <!-- ===== Logic ===== -->
+  <rect x="198" y="304" width="760" height="50" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="214" y="327" font-size="12.5" font-weight="700" fill="#243029">Validation</text>
+  <text x="214" y="343" font-size="11" fill="#5f6f6a">the sign-up form rules — required fields, a valid email, a long-enough password (validation.js)</text>
 
-  <!-- ===== Screens ===== -->
-  <!-- Welcome -->
-  <rect x="190" y="204" width="160" height="76" rx="11" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="270" y="231" text-anchor="middle" font-size="13.5" font-weight="700" fill="#243029">Welcome</text>
-  <text x="270" y="249" text-anchor="middle" font-size="11" fill="#5f6f6a">get started, or</text>
-  <text x="270" y="263" text-anchor="middle" font-size="11" fill="#5f6f6a">continue as guest</text>
+  <!-- ===== Data (State / Persistence / Networking) ===== -->
+  <g>
+    <rect x="198" y="376" width="245" height="68" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="214" y="396" font-size="12" font-weight="700" fill="#243029">State <tspan font-weight="400" fill="#5f6f6a" font-size="10.5">· in memory</tspan></text>
+    <text x="214" y="414" font-size="10.5" fill="#5f6f6a">React's built-in state —</text>
+    <text x="214" y="428" font-size="10.5" fill="#5f6f6a">form inputs, loading flags</text>
 
-  <!-- Account group -->
-  <rect x="372" y="192" width="214" height="98" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="386" y="211" font-size="12" font-weight="700" fill="#495E57">Account</text>
-  <g text-anchor="middle" fill="#243029">
-    <rect x="386" y="218" width="92" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="432" y="243" font-size="12.5" font-weight="700">Sign in</text><text x="432" y="260" font-size="10" fill="#5f6f6a">log in</text>
-    <rect x="486" y="218" width="92" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="532" y="243" font-size="12.5" font-weight="700">Sign up</text><text x="532" y="260" font-size="10" fill="#5f6f6a">new account</text>
+    <rect x="455" y="376" width="245" height="68" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="471" y="396" font-size="12" font-weight="700" fill="#243029">Persistence <tspan font-weight="400" fill="#5f6f6a" font-size="10.5">· on device</tspan></text>
+    <text x="471" y="414" font-size="10.5" fill="#5f6f6a">storage.js saves &amp; loads the</text>
+    <text x="471" y="428" font-size="10.5" fill="#5f6f6a">account via AsyncStorage</text>
+
+    <rect x="712" y="376" width="246" height="68" rx="12" fill="#fbfbfa" stroke="#cfd8d4" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="728" y="396" font-size="12" font-weight="700" fill="#9aa5a1">Networking <tspan font-weight="400" font-size="10.5">· to a server</tspan></text>
+    <text x="728" y="414" font-size="10.5" fill="#9aa5a1">None — there is no backend;</text>
+    <text x="728" y="428" font-size="10.5" fill="#9aa5a1">all data stays on the device</text>
   </g>
 
-  <!-- Main tabs group -->
-  <rect x="610" y="192" width="336" height="98" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="624" y="211" font-size="12" font-weight="700" fill="#495E57">Main tabs</text>
-  <g text-anchor="middle" fill="#243029">
-    <rect x="624" y="218" width="100" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="674" y="243" font-size="12.5" font-weight="700">Home</text><text x="674" y="260" font-size="10" fill="#5f6f6a">the menu</text>
-    <rect x="732" y="218" width="100" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="782" y="243" font-size="12.5" font-weight="700">About Us</text><text x="782" y="260" font-size="10" fill="#5f6f6a">our story</text>
-    <rect x="840" y="218" width="98" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="889" y="243" font-size="12.5" font-weight="700">Profile</text><text x="889" y="260" font-size="10" fill="#5f6f6a">your info</text>
-  </g>
-
-  <line x1="350" y1="242" x2="370" y2="242" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <line x1="586" y1="242" x2="608" y2="242" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="597" y="234" text-anchor="middle" font-size="9.5" fill="#5f6f6a">after</text>
-
-  <!-- ===== Behind the scenes ===== -->
-  <!-- reusable UI pieces -->
-  <rect x="190" y="336" width="372" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="206" y="358" font-size="12.5" font-weight="700" fill="#495E57">Reusable UI pieces</text>
-  <g text-anchor="middle" fill="#243029">
-    <rect x="206" y="368" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="289" y="390" font-size="12.5" font-weight="700">Title bar</text><text x="289" y="405" font-size="10" fill="#5f6f6a">Header</text>
-    <rect x="382" y="368" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="465" y="390" font-size="12.5" font-weight="700">Text field</text><text x="465" y="405" font-size="10" fill="#5f6f6a">FormField</text>
-    <rect x="206" y="424" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="289" y="446" font-size="12.5" font-weight="700">Button</text><text x="289" y="461" font-size="10" fill="#5f6f6a">CustomButton</text>
-    <rect x="382" y="424" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="465" y="446" font-size="12.5" font-weight="700">Photo strip</text><text x="465" y="461" font-size="10" fill="#5f6f6a">AboutUsImages</text>
-  </g>
-
-  <!-- saving & checking -->
-  <rect x="594" y="336" width="352" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="610" y="358" font-size="12.5" font-weight="700" fill="#495E57">Saving &amp; checking</text>
-  <g text-anchor="middle" fill="#243029">
-    <rect x="610" y="368" width="320" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="770" y="390" font-size="12.5" font-weight="700">Check the sign-up form</text><text x="770" y="405" font-size="10" fill="#5f6f6a">validation.js — email &amp; password rules</text>
-    <rect x="610" y="424" width="190" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="705" y="446" font-size="12.5" font-weight="700">Save &amp; load account</text><text x="705" y="461" font-size="10" fill="#5f6f6a">storage.js</text>
-    <rect x="812" y="424" width="118" height="48" rx="9" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="871" y="446" font-size="12" font-weight="700">Phone storage</text><text x="871" y="461" font-size="10" fill="#5f6f6a">AsyncStorage</text>
-  </g>
-  <line x1="800" y1="448" x2="810" y2="448" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-
-  <!-- screens -> behind the scenes (dashed) -->
-  <line x1="300" y1="290" x2="300" y2="334" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="312" y="316" font-size="11" fill="#5f6f6a">built from</text>
-  <line x1="770" y1="290" x2="770" y2="334" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="782" y="316" font-size="11" fill="#5f6f6a">uses</text>
-
-  <!-- ===== Styling ===== -->
-  <rect x="190" y="534" width="756" height="46" rx="10" fill="#FBF4D8" stroke="#ead98f" stroke-width="1.5"/>
-  <text x="568" y="555" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5a4a10">Colors &amp; fonts — chosen once, used on every screen</text>
-  <text x="568" y="570" text-anchor="middle" font-size="10.5" fill="#8a7320">NativeWind + tailwind.config</text>
+  <text x="30" y="474" font-size="11" fill="#8a7320">Styling cuts across the UI: NativeWind + tailwind.config define the brand colors and fonts once, and every screen and piece uses them.</text>
 </svg>
