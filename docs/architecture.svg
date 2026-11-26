@@ -7,105 +7,118 @@
 
   <rect x="0" y="0" width="980" height="600" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
 
-  <!-- title -->
-  <text x="32" y="38" font-size="21" font-weight="700" fill="#22302b">Little Lemon — app architecture</text>
-  <text x="32" y="59" font-size="12.5" fill="#5f6f6a">Component view of the Expo app · file-based routing, reusable components, on-device storage, NativeWind styling</text>
+  <text x="30" y="36" font-size="21" font-weight="700" fill="#22302b">Little Lemon — how the app fits together</text>
+  <text x="30" y="57" font-size="12.5" fill="#5f6f6a">A plain map of the app's parts. Read it top to bottom.</text>
 
   <!-- legend -->
-  <rect x="686" y="18" width="270" height="52" rx="9" fill="#f7f9f8" stroke="#cfd8d4" stroke-width="1.2"/>
-  <text x="700" y="35" font-size="11.5" font-weight="700" fill="#5f6f6a">LEGEND</text>
-  <line x1="700" y1="50" x2="728" y2="50" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="736" y="54" font-size="12" fill="#243029">navigation</text>
-  <line x1="826" y1="50" x2="854" y2="50" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="862" y="54" font-size="12" fill="#243029">uses</text>
+  <rect x="700" y="16" width="256" height="52" rx="9" fill="#f7f9f8" stroke="#cfd8d4" stroke-width="1.2"/>
+  <line x1="714" y1="36" x2="742" y2="36" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="750" y="40" font-size="12" fill="#243029">goes to</text>
+  <line x1="714" y1="56" x2="742" y2="56" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+  <text x="750" y="60" font-size="12" fill="#243029">is built from / uses</text>
 
-  <!-- band labels -->
-  <g font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">
-    <rect x="18" y="98" width="118" height="28" rx="8" fill="#495E57"/><text x="77" y="117">Navigation</text>
-    <rect x="18" y="214" width="118" height="28" rx="8" fill="#495E57"/><text x="77" y="233">Screens</text>
-    <rect x="18" y="404" width="118" height="28" rx="8" fill="#495E57"/><text x="77" y="423">Modules</text>
-    <rect x="18" y="520" width="118" height="28" rx="8" fill="#495E57"/><text x="77" y="539">Styling</text>
+  <!-- band labels: plain name + what it means -->
+  <g text-anchor="middle">
+    <rect x="14" y="104" width="158" height="48" rx="9" fill="#495E57"/>
+    <text x="93" y="124" font-size="13.5" font-weight="700" fill="#ffffff">Navigation</text>
+    <text x="93" y="141" font-size="10.5" fill="#cfe0da">getting around</text>
+    <rect x="14" y="222" width="158" height="48" rx="9" fill="#495E57"/>
+    <text x="93" y="242" font-size="13.5" font-weight="700" fill="#ffffff">Screens</text>
+    <text x="93" y="259" font-size="10.5" fill="#cfe0da">the pages you see</text>
+    <rect x="14" y="400" width="158" height="48" rx="9" fill="#495E57"/>
+    <text x="93" y="420" font-size="13.5" font-weight="700" fill="#ffffff">Behind the scenes</text>
+    <text x="93" y="437" font-size="10.5" fill="#cfe0da">pieces &amp; logic</text>
+    <rect x="14" y="532" width="158" height="48" rx="9" fill="#495E57"/>
+    <text x="93" y="552" font-size="13.5" font-weight="700" fill="#ffffff">Styling</text>
+    <text x="93" y="569" font-size="10.5" fill="#cfe0da">colors &amp; fonts</text>
   </g>
 
   <!-- ===== Navigation ===== -->
   <g text-anchor="middle" fill="#243029">
-    <rect x="160" y="88" width="200" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="260" y="108" font-size="13.5" font-weight="700">app/_layout.jsx</text>
-    <text x="260" y="125" font-size="11.5" fill="#5f6f6a">root stack · fonts, splash</text>
-    <rect x="396" y="88" width="208" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="500" y="108" font-size="13.5" font-weight="700">app/index.jsx</text>
-    <text x="500" y="125" font-size="11.5" fill="#5f6f6a">entry — reads saved user</text>
+    <rect x="190" y="104" width="186" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="283" y="124" font-size="13.5" font-weight="700">The app starts</text>
+    <text x="283" y="141" font-size="10.5" fill="#5f6f6a">loads fonts &amp; splash screen</text>
+    <rect x="410" y="104" width="206" height="48" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="513" y="124" font-size="13.5" font-weight="700">Signed in already?</text>
+    <text x="513" y="141" font-size="10.5" fill="#5f6f6a">checks for a saved account</text>
   </g>
-  <line x1="360" y1="112" x2="394" y2="112" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="376" y1="128" x2="408" y2="128" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
 
-  <!-- entry branches -->
-  <path d="M 452,136 V 158 H 243 V 202" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="300" y="152" font-size="11" fill="#5f6f6a">no saved user</text>
-  <path d="M 560,136 V 158 H 773 V 180" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="628" y="152" font-size="11" fill="#5f6f6a">saved user</text>
+  <!-- branches down to screens -->
+  <path d="M 455,152 V 172 H 269 V 204" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="330" y="167" font-size="11" font-weight="700" fill="#5f6f6a">No</text>
+  <path d="M 570,152 V 172 H 783 V 190" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="640" y="167" font-size="11" font-weight="700" fill="#5f6f6a">Yes</text>
 
   <!-- ===== Screens ===== -->
   <!-- Welcome -->
-  <rect x="160" y="202" width="166" height="66" rx="11" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="243" y="230" text-anchor="middle" font-size="13.5" font-weight="700" fill="#243029">welcomeScreen</text>
-  <text x="243" y="248" text-anchor="middle" font-size="11.5" fill="#5f6f6a">onboarding · guest</text>
+  <rect x="190" y="204" width="160" height="76" rx="11" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="270" y="231" text-anchor="middle" font-size="13.5" font-weight="700" fill="#243029">Welcome</text>
+  <text x="270" y="249" text-anchor="middle" font-size="11" fill="#5f6f6a">get started, or</text>
+  <text x="270" y="263" text-anchor="middle" font-size="11" fill="#5f6f6a">continue as guest</text>
 
-  <!-- (auth) -->
-  <rect x="350" y="188" width="214" height="94" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="364" y="208" font-size="12.5" font-weight="700" fill="#495E57">(auth)</text>
-  <g text-anchor="middle" fill="#243029" font-size="12.5" font-weight="700">
-    <rect x="364" y="218" width="88" height="50" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="408" y="241">Sign in</text><text x="408" y="257" font-size="10" font-weight="400" fill="#5f6f6a">verify email</text>
-    <rect x="462" y="218" width="88" height="50" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="506" y="241">Sign up</text><text x="506" y="257" font-size="10" font-weight="400" fill="#5f6f6a">validate · save</text>
+  <!-- Account group -->
+  <rect x="372" y="192" width="214" height="98" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="386" y="211" font-size="12" font-weight="700" fill="#495E57">Account</text>
+  <g text-anchor="middle" fill="#243029">
+    <rect x="386" y="218" width="92" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="432" y="243" font-size="12.5" font-weight="700">Sign in</text><text x="432" y="260" font-size="10" fill="#5f6f6a">log in</text>
+    <rect x="486" y="218" width="92" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="532" y="243" font-size="12.5" font-weight="700">Sign up</text><text x="532" y="260" font-size="10" fill="#5f6f6a">new account</text>
   </g>
 
-  <!-- (tabs) -->
-  <rect x="600" y="188" width="346" height="94" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="614" y="208" font-size="12.5" font-weight="700" fill="#495E57">(tabs)</text>
-  <g text-anchor="middle" fill="#243029" font-size="12.5" font-weight="700">
-    <rect x="614" y="218" width="102" height="50" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="665" y="241">Home</text><text x="665" y="257" font-size="10" font-weight="400" fill="#5f6f6a">menu list</text>
-    <rect x="726" y="218" width="102" height="50" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="777" y="241">About Us</text><text x="777" y="257" font-size="10" font-weight="400" fill="#5f6f6a">info · contact</text>
-    <rect x="838" y="218" width="96" height="50" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="886" y="241">Profile</text><text x="886" y="257" font-size="10" font-weight="400" fill="#5f6f6a">user · logout</text>
+  <!-- Main tabs group -->
+  <rect x="610" y="192" width="336" height="98" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="624" y="211" font-size="12" font-weight="700" fill="#495E57">Main tabs</text>
+  <g text-anchor="middle" fill="#243029">
+    <rect x="624" y="218" width="100" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="674" y="243" font-size="12.5" font-weight="700">Home</text><text x="674" y="260" font-size="10" fill="#5f6f6a">the menu</text>
+    <rect x="732" y="218" width="100" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="782" y="243" font-size="12.5" font-weight="700">About Us</text><text x="782" y="260" font-size="10" fill="#5f6f6a">our story</text>
+    <rect x="840" y="218" width="98" height="62" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="889" y="243" font-size="12.5" font-weight="700">Profile</text><text x="889" y="260" font-size="10" fill="#5f6f6a">your info</text>
   </g>
 
-  <!-- screen-to-screen navigation -->
-  <line x1="326" y1="235" x2="348" y2="235" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <line x1="564" y1="235" x2="598" y2="235" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="581" y="228" text-anchor="middle" font-size="10" fill="#5f6f6a">success</text>
+  <line x1="350" y1="242" x2="370" y2="242" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="586" y1="242" x2="608" y2="242" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="597" y="234" text-anchor="middle" font-size="9.5" fill="#5f6f6a">after</text>
 
-  <!-- ===== Modules ===== -->
-  <rect x="160" y="340" width="366" height="132" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="176" y="361" font-size="12.5" font-weight="700" fill="#495E57">components/ — reusable UI</text>
-  <g text-anchor="middle" fill="#243029" font-size="12.5" font-weight="700">
-    <rect x="176" y="372" width="162" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="257" y="397">Header</text>
-    <rect x="348" y="372" width="162" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="429" y="397">FormField</text>
-    <rect x="176" y="422" width="162" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="257" y="447">CustomButton</text>
-    <rect x="348" y="422" width="162" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="429" y="447">AboutUsImages</text>
+  <!-- ===== Behind the scenes ===== -->
+  <!-- reusable UI pieces -->
+  <rect x="190" y="336" width="372" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="206" y="358" font-size="12.5" font-weight="700" fill="#495E57">Reusable UI pieces</text>
+  <g text-anchor="middle" fill="#243029">
+    <rect x="206" y="368" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="289" y="390" font-size="12.5" font-weight="700">Title bar</text><text x="289" y="405" font-size="10" fill="#5f6f6a">Header</text>
+    <rect x="382" y="368" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="465" y="390" font-size="12.5" font-weight="700">Text field</text><text x="465" y="405" font-size="10" fill="#5f6f6a">FormField</text>
+    <rect x="206" y="424" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="289" y="446" font-size="12.5" font-weight="700">Button</text><text x="289" y="461" font-size="10" fill="#5f6f6a">CustomButton</text>
+    <rect x="382" y="424" width="166" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="465" y="446" font-size="12.5" font-weight="700">Photo strip</text><text x="465" y="461" font-size="10" fill="#5f6f6a">AboutUsImages</text>
   </g>
 
-  <rect x="566" y="340" width="380" height="132" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="582" y="361" font-size="12.5" font-weight="700" fill="#495E57">utils/ — data &amp; logic</text>
-  <g text-anchor="middle" fill="#243029" font-size="12.5">
-    <rect x="582" y="372" width="348" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="756" y="392" font-weight="700">validation.js</text><text x="756" y="406" font-size="10.5" fill="#5f6f6a">email &amp; password rules</text>
-    <rect x="582" y="422" width="196" height="40" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="680" y="442" font-weight="700">storage.js</text><text x="680" y="456" font-size="10.5" fill="#5f6f6a">save / get / remove</text>
-    <rect x="806" y="422" width="124" height="40" rx="9" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
-    <text x="868" y="442" font-weight="700">AsyncStorage</text><text x="868" y="456" font-size="10.5" fill="#5f6f6a">on device</text>
+  <!-- saving & checking -->
+  <rect x="594" y="336" width="352" height="150" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="610" y="358" font-size="12.5" font-weight="700" fill="#495E57">Saving &amp; checking</text>
+  <g text-anchor="middle" fill="#243029">
+    <rect x="610" y="368" width="320" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="770" y="390" font-size="12.5" font-weight="700">Check the sign-up form</text><text x="770" y="405" font-size="10" fill="#5f6f6a">validation.js — email &amp; password rules</text>
+    <rect x="610" y="424" width="190" height="48" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="705" y="446" font-size="12.5" font-weight="700">Save &amp; load account</text><text x="705" y="461" font-size="10" fill="#5f6f6a">storage.js</text>
+    <rect x="812" y="424" width="118" height="48" rx="9" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="871" y="446" font-size="12" font-weight="700">Phone storage</text><text x="871" y="461" font-size="10" fill="#5f6f6a">AsyncStorage</text>
   </g>
-  <line x1="780" y1="442" x2="804" y2="442" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="800" y1="448" x2="810" y2="448" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
 
-  <!-- screens -> modules (uses, dashed) -->
-  <line x1="300" y1="282" x2="300" y2="338" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="312" y="314" font-size="11" fill="#5f6f6a">compose</text>
-  <line x1="756" y1="282" x2="756" y2="338" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
-  <text x="768" y="314" font-size="11" fill="#5f6f6a">reads / writes</text>
+  <!-- screens -> behind the scenes (dashed) -->
+  <line x1="300" y1="290" x2="300" y2="334" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+  <text x="312" y="316" font-size="11" fill="#5f6f6a">built from</text>
+  <line x1="770" y1="290" x2="770" y2="334" stroke="#7d8c87" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+  <text x="782" y="316" font-size="11" fill="#5f6f6a">uses</text>
 
   <!-- ===== Styling ===== -->
-  <rect x="160" y="512" width="786" height="46" rx="10" fill="#FBF4D8" stroke="#ead98f" stroke-width="1.5"/>
-  <text x="553" y="540" text-anchor="middle" font-size="12.5" fill="#5a4a10"><tspan font-weight="700">NativeWind + tailwind.config</tspan> — brand color &amp; font tokens (Markazi, Karla) style every screen and component</text>
+  <rect x="190" y="534" width="756" height="46" rx="10" fill="#FBF4D8" stroke="#ead98f" stroke-width="1.5"/>
+  <text x="568" y="555" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5a4a10">Colors &amp; fonts — chosen once, used on every screen</text>
+  <text x="568" y="570" text-anchor="middle" font-size="10.5" fill="#8a7320">NativeWind + tailwind.config</text>
 </svg>
