@@ -31,7 +31,15 @@ A React Native app built with [Expo](https://expo.dev/), using [Expo Router](htt
 
 ## Architecture
 
-The app is organized into four layers: navigation decides which screen shows, screens compose reusable components, utilities hold the data and logic, and NativeWind styles everything from one theme.
+The app is small and splits into a few clear parts:
+
+- **Navigation** decides which screen you see. The folder layout *is* the navigation, and `app/index` sends you to the Welcome screen or straight to the tabs, depending on whether an account is already saved.
+- **Screens** are what you look at: Welcome → Sign in / Sign up → the Home (menu), About Us and Profile tabs.
+- **Components** are the reusable building blocks — `Header`, `FormField`, `CustomButton`, `AboutUsImages` — that every screen is made from.
+- **Utilities** hold the logic: `storage` keeps the account on the phone, `validation` checks the sign-up form.
+- **Styling** comes from NativeWind, with the brand colors and fonts defined once.
+
+The diagram shows how these fit together; the sections below it go a level deeper on each.
 
 <p align="center">
   <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="Four layers, with a legend distinguishing navigation (solid) from uses (dashed). Navigation: app/_layout is the root stack (fonts, splash); app/index is the entry point that reads the saved user and either navigates to the tabs if one exists or shows the Welcome screen. Screens: the Welcome onboarding screen leads into an (auth) group of Sign in (verify email) and Sign up (validate and save), and a (tabs) group holds Home, About Us and Profile. Modules: screens compose a components folder (Header, FormField, CustomButton, AboutUsImages) and use a utils folder (validation rules and a storage module that reads and writes the user through AsyncStorage on the device). Styling: NativeWind and tailwind.config supply the brand color and font tokens used by every screen and component."></a>
