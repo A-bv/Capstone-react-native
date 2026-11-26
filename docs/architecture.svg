@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7d8c87"/>
+    </marker>
+  </defs>
+
+  <!-- backdrop -->
+  <rect x="0" y="0" width="960" height="560" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
+
+  <!-- title -->
+  <text x="32" y="40" font-size="22" font-weight="700" fill="#22302b">Little Lemon — app architecture</text>
+  <text x="32" y="62" font-size="13" fill="#5f6f6a">Expo Router file-based navigation · reusable components · NativeWind (Tailwind) styling · AsyncStorage persistence</text>
+
+  <!-- left band labels -->
+  <g font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <rect x="20" y="106" width="120" height="30" rx="8" fill="#495E57"/><text x="80" y="126">Navigation</text>
+    <rect x="20" y="212" width="120" height="30" rx="8" fill="#495E57"/><text x="80" y="232">Screens</text>
+    <rect x="20" y="381" width="120" height="30" rx="8" fill="#495E57"/><text x="80" y="401">Dependencies</text>
+    <rect x="20" y="496" width="120" height="30" rx="8" fill="#495E57"/><text x="80" y="516">Styling</text>
+  </g>
+
+  <!-- ===== Navigation band ===== -->
+  <g text-anchor="middle" fill="#243029">
+    <rect x="160" y="96" width="196" height="50" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="258" y="117" font-size="14" font-weight="700">app/_layout.jsx</text>
+    <text x="258" y="134" font-size="12" fill="#5f6f6a">root stack · fonts, splash</text>
+
+    <rect x="392" y="96" width="212" height="50" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="498" y="117" font-size="14" font-weight="700">app/index.jsx</text>
+    <text x="498" y="134" font-size="12" fill="#5f6f6a">entry — reads saved user</text>
+
+    <rect x="640" y="96" width="210" height="50" rx="10" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="745" y="117" font-size="14" font-weight="700">saved user?</text>
+    <text x="745" y="134" font-size="12" fill="#5f6f6a">→ Tabs   /   → Welcome</text>
+  </g>
+  <line x1="356" y1="121" x2="390" y2="121" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="604" y1="121" x2="638" y2="121" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== Screens band ===== -->
+  <!-- (auth) group -->
+  <rect x="160" y="166" width="330" height="112" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="176" y="188" font-size="13" font-weight="700" fill="#495E57">(auth) — onboarding</text>
+  <g text-anchor="middle" fill="#243029" font-size="13">
+    <rect x="176" y="202" width="138" height="60" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="245" y="228" font-weight="700">Welcome</text><text x="245" y="246" font-size="11" fill="#5f6f6a">guest / continue</text>
+    <rect x="326" y="202" width="150" height="60" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="401" y="228" font-weight="700">Sign in · Sign up</text><text x="401" y="246" font-size="11" fill="#5f6f6a">validate · save user</text>
+  </g>
+
+  <!-- (tabs) group -->
+  <rect x="520" y="166" width="400" height="112" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="536" y="188" font-size="13" font-weight="700" fill="#495E57">(tabs) — main app</text>
+  <g text-anchor="middle" fill="#243029" font-size="13">
+    <rect x="536" y="202" width="118" height="60" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="595" y="228" font-weight="700">Home</text><text x="595" y="246" font-size="11" fill="#5f6f6a">menu list</text>
+    <rect x="662" y="202" width="118" height="60" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="721" y="228" font-weight="700">About Us</text><text x="721" y="246" font-size="11" fill="#5f6f6a">info · contact</text>
+    <rect x="788" y="202" width="118" height="60" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="847" y="228" font-weight="700">Profile</text><text x="847" y="246" font-size="11" fill="#5f6f6a">user · logout</text>
+  </g>
+
+  <!-- nav -> screens -->
+  <line x1="498" y1="146" x2="498" y2="164" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== Dependencies band ===== -->
+  <!-- components group -->
+  <rect x="160" y="322" width="360" height="148" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="176" y="344" font-size="13" font-weight="700" fill="#495E57">components/ — reusable UI</text>
+  <g text-anchor="middle" fill="#243029" font-size="13" font-weight="700">
+    <rect x="176" y="356" width="160" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="256" y="382">Header</text>
+    <rect x="344" y="356" width="160" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="424" y="382">FormField</text>
+    <rect x="176" y="410" width="160" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="256" y="436">CustomButton</text>
+    <rect x="344" y="410" width="160" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/><text x="424" y="436">AboutUsImages</text>
+  </g>
+
+  <!-- data group -->
+  <rect x="560" y="322" width="360" height="148" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="576" y="344" font-size="13" font-weight="700" fill="#495E57">utils/ — data &amp; logic</text>
+  <g text-anchor="middle" fill="#243029" font-size="13">
+    <rect x="576" y="356" width="328" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="740" y="376" font-weight="700">validation.js</text><text x="740" y="391" font-size="11" fill="#5f6f6a">email &amp; password rules</text>
+    <rect x="576" y="410" width="180" height="42" rx="9" fill="#ffffff" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="666" y="430" font-weight="700">storage.js</text><text x="666" y="445" font-size="11" fill="#5f6f6a">save / get / remove</text>
+    <rect x="784" y="410" width="120" height="42" rx="9" fill="#EDEFEE" stroke="#cfd8d4" stroke-width="1.5"/>
+    <text x="844" y="430" font-weight="700">AsyncStorage</text><text x="844" y="445" font-size="11" fill="#5f6f6a">on device</text>
+  </g>
+  <line x1="758" y1="431" x2="782" y2="431" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- screens -> deps -->
+  <line x1="340" y1="278" x2="340" y2="320" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="352" y="304" font-size="11" fill="#5f6f6a">compose</text>
+  <line x1="720" y1="278" x2="720" y2="320" stroke="#7d8c87" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="732" y="304" font-size="11" fill="#5f6f6a">read / write</text>
+
+  <!-- ===== Styling band ===== -->
+  <rect x="160" y="492" width="760" height="40" rx="10" fill="#FBF4D8" stroke="#ead98f" stroke-width="1.5"/>
+  <text x="540" y="517" text-anchor="middle" font-size="13" fill="#5a4a10"><tspan font-weight="700">NativeWind + tailwind.config</tspan> — brand color &amp; font tokens (Markazi, Karla) style every screen and component</text>
+</svg>
