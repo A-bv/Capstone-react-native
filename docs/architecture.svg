@@ -1,55 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 340" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#7d8c87"/>
     </marker>
   </defs>
 
-  <rect x="0" y="0" width="980" height="360" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
+  <rect x="0" y="0" width="980" height="340" rx="16" fill="#ffffff" stroke="#d7dedb" stroke-width="1.5"/>
   <text x="30" y="38" font-size="20" font-weight="700" fill="#22302b">How the app is built</text>
 
   <!-- ===== UI (hub) ===== -->
-  <rect x="236" y="54" width="508" height="118" rx="12" fill="#e9f0ed" stroke="#495E57" stroke-width="2"/>
-  <text x="256" y="78" font-size="12" font-weight="700" fill="#5f6f6a">UI</text>
+  <rect x="236" y="52" width="508" height="104" rx="12" fill="#e9f0ed" stroke="#495E57" stroke-width="2"/>
+  <text x="256" y="76" font-size="12" font-weight="700" fill="#5f6f6a">UI</text>
   <g font-size="11.5" fill="#243029">
-    <text x="256" y="100"><tspan font-weight="700">framework</tspan> — <tspan font-weight="700" fill="#2f7d5b">React Native</tspan></text>
-    <text x="256" y="120"><tspan font-weight="700">styling</tspan> — <tspan font-weight="700" fill="#2f7d5b">NativeWind</tspan></text>
-    <text x="256" y="140"><tspan font-weight="700">screens</tspan> — Welcome · Sign in · Sign up · Home · About Us · Profile</text>
-    <text x="256" y="160"><tspan font-weight="700">components</tspan> — Header · FormField · CustomButton · AboutUsImages</text>
+    <text x="256" y="96"><tspan font-weight="700">Tool</tspan> — <tspan font-weight="700" fill="#2f7d5b">React Native · NativeWind</tspan></text>
+    <text x="256" y="117"><tspan font-weight="700">Screens</tspan> — Welcome · Sign in · Sign up · Home · About Us · Profile</text>
+    <text x="256" y="138"><tspan font-weight="700">Components</tspan> — Header · FormField · CustomButton · AboutUsImages</text>
   </g>
 
   <!-- arrows -->
-  <path d="M 350,172 V 192 H 175 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="262" y="186" text-anchor="middle" font-size="11" fill="#5f6f6a">move between screens</text>
-  <path d="M 490,172 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="498" y="196" font-size="11" fill="#5f6f6a">validate the form</text>
-  <path d="M 628,172 V 192 H 800 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
-  <text x="714" y="186" text-anchor="middle" font-size="11" fill="#5f6f6a">read &amp; save data</text>
+  <path d="M 350,156 V 182 H 175 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="262" y="176" text-anchor="middle" font-size="11" fill="#5f6f6a">move between screens</text>
+  <path d="M 490,156 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="500" y="188" font-size="11" fill="#5f6f6a">validate the form</text>
+  <path d="M 630,156 V 182 H 805 V 214" fill="none" stroke="#7d8c87" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="716" y="176" text-anchor="middle" font-size="11" fill="#5f6f6a">read &amp; save data</text>
 
   <!-- ===== Navigation ===== -->
-  <rect x="40" y="214" width="270" height="116" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <rect x="40" y="214" width="270" height="100" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
   <text x="58" y="238" font-size="12" font-weight="700" fill="#5f6f6a">NAVIGATION</text>
   <g font-size="11.5" fill="#243029">
-    <text x="58" y="262"><tspan font-weight="700">routing</tspan> — <tspan font-weight="700" fill="#2f7d5b">Expo Router</tspan> <tspan fill="#5f6f6a">(file-based)</tspan></text>
-    <text x="58" y="286"><tspan font-weight="700">auth stack</tspan> — sign in / sign up</text>
-    <text x="58" y="310"><tspan font-weight="700">tab bar</tspan> — Home · About · Profile</text>
+    <text x="58" y="264"><tspan font-weight="700">Tool</tspan> — <tspan font-weight="700" fill="#2f7d5b">Expo Router</tspan> <tspan fill="#5f6f6a">(file-based)</tspan></text>
+    <text x="58" y="288"><tspan font-weight="700">Role</tspan> — sets up the auth stack + tab bar</text>
   </g>
 
   <!-- ===== Logic ===== -->
-  <rect x="350" y="214" width="270" height="116" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <rect x="350" y="214" width="270" height="100" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
   <text x="368" y="238" font-size="12" font-weight="700" fill="#5f6f6a">LOGIC</text>
   <g font-size="11.5" fill="#243029">
-    <text x="368" y="262"><tspan font-weight="700">validation</tspan> — <tspan font-weight="700" fill="#2f7d5b">validation.js</tspan></text>
-    <text x="368" y="286"><tspan font-weight="700">checks</tspan> — email &amp; password</text>
-    <text x="368" y="310"><tspan font-weight="700">runs</tspan> — before saving</text>
+    <text x="368" y="264"><tspan font-weight="700">Tool</tspan> — <tspan font-weight="700" fill="#2f7d5b">validation.js</tspan></text>
+    <text x="368" y="288"><tspan font-weight="700">Role</tspan> — validates the sign-up form</text>
   </g>
 
   <!-- ===== Data ===== -->
-  <rect x="660" y="214" width="280" height="116" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
+  <rect x="660" y="214" width="290" height="100" rx="12" fill="#f4f7f6" stroke="#cfd8d4" stroke-width="1.5"/>
   <text x="678" y="238" font-size="12" font-weight="700" fill="#5f6f6a">DATA</text>
   <g font-size="11.5" fill="#243029">
-    <text x="678" y="262"><tspan font-weight="700">local state</tspan> — <tspan font-weight="700" fill="#2f7d5b">useState</tspan> <tspan fill="#5f6f6a">(memory)</tspan></text>
-    <text x="678" y="286"><tspan font-weight="700">persistence</tspan> — <tspan font-weight="700" fill="#2f7d5b">AsyncStorage</tspan> <tspan fill="#5f6f6a">(device)</tspan></text>
-    <text x="678" y="310"><tspan font-weight="700">networking</tspan> — <tspan font-weight="700" fill="#9aa5a1">none</tspan></text>
+    <text x="678" y="264"><tspan font-weight="700">Tool</tspan> — <tspan font-weight="700" fill="#2f7d5b">useState · AsyncStorage</tspan></text>
+    <text x="678" y="288"><tspan font-weight="700">Role</tspan> — in memory + on device; no networking</text>
   </g>
 </svg>
