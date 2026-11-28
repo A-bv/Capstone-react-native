@@ -31,17 +31,18 @@ A React Native app built with [Expo](https://expo.dev/), using [Expo Router](htt
 
 ## Architecture
 
-Like any app, Little Lemon is organized by **responsibility** — what each piece of code is in charge of:
+Little Lemon is organized into the standard app **layers**, each holding the parts responsible for it:
 
-- **UI** — the screens you see and the reusable pieces they're built from (`Header`, `FormField`, `CustomButton`, `AboutUsImages`), styled with NativeWind.
-- **Navigation** — how you move between screens (Expo Router).
-- **Logic** — the app's rules (form validation).
-- **Data** — the information it works with: short-lived **state** while it runs, and the account **saved on the device** (AsyncStorage). There is **no networking** — the app has no backend.
+- **Presentation** — UI (React Native), styling (NativeWind) and navigation (Expo Router).
+- **Logic** — local state (`useState`) and the form rules (`validation.js`).
+- **Data** — the account saved on the device (AsyncStorage); **no networking** — there's no backend.
+- **Platform** — Expo-managed (fonts, splash); no custom native code or permissions.
+- **Cross-cutting** — spans every layer; here only a local-demo auth, with error handling, logging and i18n not implemented.
 
-The diagram groups every part under one of these; the sections below it go a level deeper.
+The diagram below places every part — including the ones this app deliberately leaves out — in its layer. For how it *works*, an **[interactive version](https://a-bv.github.io/Capstone-react-native/docs/architecture.html)** steps through each flow.
 
 <p align="center">
-  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="Every part is described the same way — its Role (what it is responsible for) and what it Uses (the tool, and what kind of thing it is). UI — Role: everything you see and tap; Uses: React Native (framework) and NativeWind (styling library). Navigation — Role: moving between screens; Uses: Expo Router (file-based routing). Logic — Role: the sign-up form rules; Uses: validation.js (our own code). Data — Role: remembering your info, with no server; Uses: useState (a React hook) and AsyncStorage (a library). Arrows show the UI using navigation, logic and data. A glossary defines each tool: React Native is the framework for building iOS and Android apps; NativeWind is Tailwind CSS styling inside React Native; Expo Router is navigation where each file is a screen; validation.js is our own function that checks the form; useState is React's built-in memory for one screen; AsyncStorage saves small data on the device."></a>
+  <a href="docs/architecture.svg"><img src="docs/architecture.svg" width="100%" alt="The app's layers, drawn as stacked bands. Cross-cutting spans all layers: auth is a local demo; error handling, logging, config and notifications are none; i18n and accessibility are minimal. Presentation: UI with React Native, styling with NativeWind, navigation with Expo Router. Logic: local state with useState, business rules in validation.js. Data: no networking, persistence with AsyncStorage, no data shaping. Platform: Expo-managed fonts and splash, no custom native code, no permissions. Delivery (dev-time): Expo build, Jest tests, GitHub Actions CI."></a>
 </p>
 
 ### UI
