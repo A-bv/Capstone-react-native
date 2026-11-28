@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Lemon — Architecture</title>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#f4f7f6; --ink:#243029; --muted:#5f6f6a;
+    --line:#cfd8d4; --accent:#2f7d5b; --active:#1f9d57; --fail:#d14343;
+    --hub:#e9f0ed; --hubln:#495E57; --chip:#495E57;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#11201b; --panel:#1b2a24; --ink:#e7efea; --muted:#9fb4ab;
+      --line:#2f4339; --accent:#6fd6a0; --active:#56e08a; --fail:#ff7b7b;
+      --hub:#16352a; --hubln:#5fae86; --chip:#2f7d5b;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;padding:20px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .tab{border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--chip);color:#fff;border-color:var(--chip)}
+  .stage{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg)}
+  svg{display:block;width:100%;height:auto}
+  .caption{min-height:40px;display:flex;align-items:center;gap:10px;margin:12px 2px;font-size:14px}
+  .step{display:none;align-items:center;gap:8px}
+  .step.on{display:flex}
+  .nav{border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer}
+  .nav:disabled{opacity:.4;cursor:default}
+  .count{color:var(--muted);font-size:12px}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:12px;color:var(--muted)}
+  .legend b{color:var(--ink);font-weight:600}
+  .lg{display:inline-flex;align-items:center;gap:6px}
+  .lgln{width:26px;height:0;border-top:2px solid var(--muted)}
+  rect.block{fill:var(--panel);stroke:var(--line);stroke-width:1.5}
+  rect.hub{fill:var(--hub);stroke:var(--hubln);stroke-width:2}
+  rect.dashed{stroke-dasharray:5 4}
+  .pill{fill:var(--bg);stroke:var(--hubln);stroke-width:1.8}
+  text.t{font-size:12.5px;font-weight:700;fill:var(--ink)}
+  text.s{font-size:10px;fill:var(--muted)}
+  text.lbl{font-size:10px;fill:var(--ink)}
+  .alabel{fill:var(--bg)}
+</style>
+</head>
+<body>
+  <h1>Little Lemon — architecture</h1>
+  <p class="sub">A React Native (Expo) app. Pick <b>Structure</b> to see the parts, or a flow to step through how it works.</p>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="stage"><svg id="svg" viewBox="0 0 980 400" role="img" aria-label="Architecture diagram"></svg></div>
+
+  <div class="caption">
+    <button class="nav step" id="prev">‹ Prev</button>
+    <span id="cap"></span>
+    <button class="nav step" id="next">Next ›</button>
+    <span class="count step" id="count"></span>
+  </div>
+
+  <div class="legend">
+    <span class="lg"><span class="lgln"></span> <b>solid</b> — calls / passes data</span>
+    <span class="lg"><span class="lgln" style="border-top-style:dotted"></span> <b>dotted</b> — renders / provides</span>
+    <span class="lg"><span style="display:inline-block;width:16px;height:12px;border:1.5px dashed var(--muted);border-radius:3px"></span> <b>dashed box</b> — mocked in tests</span>
+    <span class="lg"><span style="color:var(--active);font-weight:700">■</span> active step &nbsp; <span style="color:var(--fail);font-weight:700">■</span> failure</span>
+    <span class="lg"><span style="display:inline-block;width:16px;height:12px;border:1.5px solid var(--hubln);border-radius:999px"></span> actor</span>
+  </div>
+
+<script>
+const B = {
+  user:{x:30,y:28,w:96,h:40,t:"User",s:"",pill:true},
+  layout:{x:168,y:26,w:168,h:46,t:"App root",s:"fonts · splash · stacks"},
+  index:{x:372,y:26,w:172,h:46,t:"Entry (index)",s:"routes by saved user"},
+  welcome:{x:30,y:140,w:150,h:48,t:"Welcome",s:"onboarding / guest"},
+  signin:{x:208,y:140,w:128,h:48,t:"Sign in",s:"verify email"},
+  signup:{x:360,y:140,w:128,h:48,t:"Sign up",s:"validate · save"},
+  home:{x:540,y:140,w:120,h:48,t:"Home",s:"menu"},
+  about:{x:684,y:140,w:118,h:48,t:"About Us",s:"info · contact"},
+  profile:{x:826,y:140,w:124,h:48,t:"Profile",s:"user · logout"},
+  comp:{x:208,y:238,w:294,h:44,t:"Shared components",s:"Header · FormField · CustomButton · AboutUsImages"},
+  state:{x:30,y:330,w:150,h:48,t:"Local state",s:"useState (in memory)"},
+  valid:{x:208,y:330,w:150,h:48,t:"Validation",s:"form rules"},
+  storage:{x:398,y:330,w:160,h:48,t:"Storage",s:"save · get · remove",dashed:true},
+  async:{x:590,y:330,w:172,h:48,t:"AsyncStorage",s:"device store · 'user'",dashed:true},
+  nw:{x:800,y:330,w:150,h:48,t:"NativeWind",s:"theme · colors & fonts"},
+};
+// structure arrows: [from,to,type]  type: 'solid' | 'dot'
+const STRUCT = [
+  ["user","index","solid"],["layout","index","dot"],
+  ["index","storage","solid"],["index","welcome","solid"],["index","home","solid"],
+  ["welcome","signin","solid"],["signin","signup","solid"],
+  ["signup","valid","solid"],["signup","storage","solid"],["signup","home","solid"],
+  ["signin","storage","solid"],["signin","home","solid"],
+  ["profile","storage","solid"],["profile","welcome","solid"],
+  ["storage","async","solid"],
+  ["signup","comp","solid"],["signin","comp","solid"],["home","comp","solid"],
+  ["nw","comp","dot"],["state","signup","dot"],
+];
+// flows: each step [from,to,caption,fail?]
+const FLOWS = {
+  "Startup":[
+    ["user","index","The user opens the app; Entry (index) runs"],
+    ["index","storage","Entry calls storage.getUser() to read the saved account"],
+    ["index","home","If an account exists → redirect to Home (the tabs)"],
+    ["index","welcome","Otherwise (branch) → show the Welcome screen"],
+  ],
+  "Sign up":[
+    ["user","welcome","The user opens the app on Welcome"],
+    ["welcome","signin","Taps ‘Continue with Email’ → Sign in"],
+    ["signin","signup","Taps ‘Sign up’ → the Sign up form"],
+    ["signup","valid","On submit, Sign up calls validateForm(email, password)"],
+    ["valid","signup","Invalid → inline errors are shown, stop here",true],
+    ["signup","storage","Valid → storage.saveUser() (the password is not stored)"],
+    ["storage","async","Storage writes the 'user' key to the device"],
+    ["signup","home","Redirect to Home"],
+  ],
+  "Sign in":[
+    ["user","signin","A returning user is on the Sign in screen"],
+    ["signin","storage","On submit, Sign in calls storage.getUser()"],
+    ["storage","async","Storage reads the 'user' key from the device"],
+    ["signin","home","Email matches the saved account → redirect to Home"],
+    ["signin","signin","Email doesn't match → error shown, stay on Sign in",true],
+  ],
+  "Logout":[
+    ["user","profile","The user is on Profile and taps Logout"],
+    ["profile","storage","Profile calls storage.removeUser()"],
+    ["storage","async","Storage deletes the 'user' key"],
+    ["profile","welcome","Return to the Welcome screen"],
+  ],
+};
+
+const SVG="http://www.w3.org/2000/svg";
+const svg=document.getElementById("svg");
+function el(n,a){const e=document.createElementNS(SVG,n);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function defs(){
+  const d=el("defs");
+  for(const [id,col] of [["ar","var(--muted)"],["ag","var(--active)"],["ar2","var(--fail)"]]){
+    const m=el("marker",{id,viewBox:"0 0 10 10",refX:8.5,refY:5,markerWidth:7,markerHeight:7,orient:"auto-start-reverse"});
+    m.appendChild(el("path",{d:"M0,0 L10,5 L0,10 z",fill:col}));d.appendChild(m);
+  }
+  svg.appendChild(d);
+}
+function clip(c,hx,hy,tx,ty){let dx=tx-c[0],dy=ty-c[1];if(!dx&&!dy)return c;
+  const sx=dx?hx/Math.abs(dx):1e9,sy=dy?hy/Math.abs(dy):1e9,s=Math.min(sx,sy);return [c[0]+dx*s,c[1]+dy*s];}
+function seg(a,b){const A=B[a],Bb=B[b];const ac=[A.x+A.w/2,A.y+A.h/2],bc=[Bb.x+Bb.w/2,Bb.y+Bb.h/2];
+  const p1=clip(ac,A.w/2+3,A.h/2+3,bc[0],bc[1]);const p2=clip(bc,Bb.w/2+3,Bb.h/2+3,ac[0],ac[1]);
+  return {x1:p1[0],y1:p1[1],x2:p2[0],y2:p2[1]};}
+let gArrows,gBlocks;
+function drawBlocks(){
+  gBlocks=el("g");svg.appendChild(gBlocks);
+  for(const id in B){const b=B[id];
+    const cls=b.pill?"pill":(id==="index"||id==="layout"?"block":"block")+(b.dashed?" dashed":"");
+    const r=el("rect",{x:b.x,y:b.y,width:b.w,height:b.h,rx:b.pill?20:10,class:(b.pill?"pill":"block")+(b.dashed?" dashed":"")});
+    gBlocks.appendChild(r);
+    const tx=b.x+b.w/2;
+    if(b.s){
+      gBlocks.appendChild(el("text",{x:tx,y:b.y+b.h/2-3,"text-anchor":"middle",class:"t"})).textContent=b.t;
+      gBlocks.appendChild(el("text",{x:tx,y:b.y+b.h/2+12,"text-anchor":"middle",class:"s"})).textContent=b.s;
+    }else{
+      gBlocks.appendChild(el("text",{x:tx,y:b.y+b.h/2+4,"text-anchor":"middle",class:"t"})).textContent=b.t;
+    }
+  }
+}
+function arrow(from,to,{color="var(--ar)",marker="ar",dash="",op=1,w=2}={}){
+  if(from===to){ // self-loop over the block
+    const b=B[from];const x=b.x+b.w-14,y=b.y;
+    const p=el("path",{d:`M ${x} ${y} C ${x+34} ${y-30}, ${x+34} ${y+b.h+30}, ${x} ${y+b.h}`,
+      fill:"none",stroke:color,"stroke-width":w,"stroke-dasharray":dash,"marker-end":`url(#${marker})`,opacity:op});
+    gArrows.appendChild(p);return;
+  }
+  const s=seg(from,to);
+  gArrows.appendChild(el("line",{x1:s.x1,y1:s.y1,x2:s.x2,y2:s.y2,stroke:color,"stroke-width":w,
+    "stroke-dasharray":dash,"marker-end":`url(#${marker})`,opacity:op}));
+}
+function clearArrows(){if(gArrows)gArrows.remove();gArrows=el("g");svg.insertBefore(gArrows,gBlocks);}
+
+let view="Structure",step=0;
+function render(){
+  clearArrows();
+  if(view==="Structure"){
+    for(const[f,t,ty] of STRUCT) arrow(f,t,{op:.28,dash:ty==="dot"?"2 4":"",w:1.6});
+    document.querySelectorAll(".step").forEach(e=>e.classList.remove("on"));
+    document.getElementById("cap").textContent="Every box is a part of the app, grouped by responsibility. Dashed boxes are mocked in tests. Pick a flow above to step through how it works.";
+    return;
+  }
+  // faint structure context
+  for(const[f,t,ty] of STRUCT) arrow(f,t,{op:.08,dash:ty==="dot"?"2 4":"",w:1.4});
+  const steps=FLOWS[view];
+  for(let i=0;i<=step;i++){
+    const[f,t,,fail]=steps[i];
+    const cur=i===step;
+    arrow(f,t,{color:fail?"var(--fail)":"var(--active)",marker:fail?"ar2":"ag",
+      dash:fail?"6 4":"",op:cur?1:.3,w:cur?2.6:1.8});
+  }
+  document.querySelectorAll(".step").forEach(e=>e.classList.add("on"));
+  const[,, cap, fail]=steps[step];
+  document.getElementById("cap").innerHTML=`<b>Step ${step+1} of ${steps.length}:</b> ${cap}`+(fail?' <span style="color:var(--fail)">(failure)</span>':'');
+  document.getElementById("count").textContent="";
+  document.getElementById("prev").disabled=step===0;
+  document.getElementById("next").disabled=step===steps.length-1;
+}
+function buildTabs(){
+  const t=document.getElementById("tabs");
+  ["Structure",...Object.keys(FLOWS)].forEach(name=>{
+    const b=document.createElement("button");b.className="tab";b.textContent=name;
+    b.setAttribute("aria-selected",name==="Structure");
+    b.onclick=()=>{view=name;step=0;[...t.children].forEach(c=>c.setAttribute("aria-selected",c===b));render();};
+    t.appendChild(b);
+  });
+}
+document.getElementById("prev").onclick=()=>{if(step>0){step--;render();}};
+document.getElementById("next").onclick=()=>{const s=FLOWS[view];if(s&&step<s.length-1){step++;render();}};
+defs();drawBlocks();buildTabs();render();
+</script>
+</body>
+</html>
